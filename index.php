@@ -1,7 +1,11 @@
 <?php
+// Conexão
+    include_once 'php_action/db_connect.php';
 // Header
     include_once 'includes/header.php';
+// Menu lateral
     include_once 'includes/side_menu.php';
+// Menu superior
     include_once 'includes/top_menu.php';
 ?>
 
@@ -38,6 +42,53 @@
             </thead>
 
             <tbody>
+                
+                
+                
+                
+                
+                        <?php
+                        //$sql = "SELECT * FROM tab_clientes";
+                        $sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";
+                        /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+                        
+                        $resultado = mysqli_query($connect, $sql);
+                        
+                        
+
+                        if(mysqli_num_rows($resultado) > 0):
+
+                        while($dados = mysqli_fetch_array($resultado)):
+                        ?>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
               <tr class="even pointer">
                 <td class="a-center ">
                   <input type="checkbox" class="flat" name="table_records">
@@ -78,6 +129,20 @@
                 <td class=" last"><a href="#">View</a>
                 </td>
               </tr>
+                       <?php 
+                        endwhile;
+                        else: ?>
+
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+
+                       <?php 
+                        endif;
+                       ?>
             </tbody>
           </table>
         </div> 
