@@ -16,19 +16,19 @@
                 <th>
                   <input type="checkbox" id="check-all" class="flat">
                 </th>
-                <th class="column-title">Proposta </th>
+                <th class="column-title">Prop </th>
                 <th class="column-title">Cliente </th>
-                <th class="column-title">ade </th>
+                <th class="column-title">Cpf </th>
+                <th class="column-title">Ade </th>
                 <th class="column-title">Parcela </th>
                 <th class="column-title">Situação </th>
                 <th class="column-title">Motivo </th>
                 <th class="column-title">Orgão </th>
-                <th class="column-title">Banco </th>
-                <th class="column-title">Diversos </th>
+                <th class="column-title">Bco </th>
                 <th class="column-title">Anexos </th>
                 <th class="column-title"></th>
-                <th class="column-title">Situação </th>
-                <th class="column-title">Motivo </th>
+                <th class="column-title"> </th>
+                <th class="column-title"> </th>
                 <th class="column-title no-link last"><span class="nobr">Action</span>
                 </th>
                 <th class="bulk-actions" colspan="7">
@@ -42,15 +42,15 @@
                 <td class="a-center ">
                   <input type="checkbox" class="flat" name="table_records">
                 </td>
-                <td class=" ">121000040</td>
-                <td class=" ">May 23, 2014 11:47:56 PM </td>
-                <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i></td>
-                <td class=" ">John Blank L</td>
-                <td class=" ">Paid</td>
-                <td class="a-right a-right ">$7.45</td>
-                <td class="a-right a-right ">$7.45</td>
-                <td class="a-right a-right ">$7.45</td>
-                <td class="a-right a-right ">$7.45</td>
+                <td class=" ">1</td>
+                <td class=" ">Carlos da Silva Junior </td>
+                <td class=" ">125.445.887-54 <i class="success fa fa-long-arrow-up"></i></td>
+                <td class=" ">865988 </td>
+                <td class=" ">R$ 156,10</td>
+                <td class="a-right a-right ">Aguardando </td>
+                <td class="a-right a-right ">digitação </td>
+                <td class="a-right a-right ">Inss </td>
+                <td class="a-right a-right ">Banrisul</td>
                 <td class="a-right a-right "></td>
                 <td class="a-right a-right "><i class="fa fa-paperclip"></i></td>
                 <td class="a-right a-right "><i class="fa fa-edit"></i></td>
@@ -62,15 +62,15 @@
                 <td class="a-center ">
                   <input type="checkbox" class="flat" name="table_records">
                 </td>
-                <td class=" ">121000040</td>
-                <td class=" ">May 23, 2014 11:47:56 PM </td>
-                <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i></td>
-                <td class=" ">John Blank L</td>
-                <td class=" ">Paid</td>
-                <td class="a-right a-right ">$7.45</td>
-                <td class="a-right a-right ">$7.45</td>
-                <td class="a-right a-right ">$7.45</td>
-                <td class="a-right a-right ">$7.45</td>
+                <td class=" ">2 </td>
+                <td class=" ">Luiz Carlos da Silva Costa </td>
+                <td class=" ">457.887.842-11 <i class="success fa fa-long-arrow-up"></i></td>
+                <td class=" ">987888 </td>
+                <td class=" ">R$ 126,00 </td>
+                <td class="a-right a-right ">Pendente </td>
+                <td class="a-right a-right ">documento pendente </td>
+                <td class="a-right a-right ">Inss </td>
+                <td class="a-right a-right ">Banrisul</td>
                 <td class="a-right a-right "></td>
                 <td class="a-right a-right "><i class="fa fa-paperclip"></i></td>
                 <td class="a-right a-right "><i class="fa fa-edit"></i></td>
@@ -82,6 +82,22 @@
           </table>
         </div> 
           <!-- tabela -->
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
