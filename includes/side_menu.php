@@ -26,12 +26,12 @@
               <div class="menu_section">
                 <h3>Consignado</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fas fa-home"></i> Proposta <span class="fas fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-home"></i> Proposta <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Cadastro</a></li>
                     </ul>
                   </li>
-                  <li style="display: none;"><a><i class="fas fa-home"></i> Tabelas Auxiliares <span class="fas fa-chevron-down"></span></a>
+                  <li style="display: none;"><a><i class="fas fa-home"></i> Tabelas Auxiliares <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Vendedor</a></li>
                       <li><a href="#">Promotora</a></li>
@@ -94,7 +94,7 @@
               <div class="menu_section">
                 <h3>Cadastro</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fas fa-bug"></i> Tabelas Auxiliares <span class="fas fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-bug"></i> Tabelas Auxiliares <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Cliente</a></li>
                       <li><a href="#">Operadora</a></li>

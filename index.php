@@ -135,6 +135,11 @@
                                 ?>
                             </td>
                 
+                            
+                                        
+                            <td class="a-right a-right "><?php echo '<i class="fa fa-paperclip clip-anexo " data-toggle="modal" data-target="#modalAnexos" data-id="'.$dados['id_contrato'].'"></i>'; ?></td>
+                
+                
                 
                 
                 
@@ -177,7 +182,7 @@
                 <!--<td class="a-right a-right ">Inss </td>-->
                 <!--<td class="a-right a-right ">Banrisul</td>-->
                 <!--<td class="a-right a-right "></td>-->
-                <td class="a-right a-right "><i class="fa fa-paperclip"></i></td>
+                <!--<td class="a-right a-right "><i class="fa fa-paperclip"></i></td>-->
                 <td class="a-right a-right "><i class="fa fa-edit"></i></td>
                 <td class="a-right a-right "><i class="fa fa-trash"></i></td>
                 <td class=" last"><a href="#">View</a>
@@ -900,6 +905,53 @@
           </div>
         </div>
         <!-- /page content -->
+
+
+
+
+
+
+       <!-- JANELA MODAL COM A LISTA DE ANEXOS DA PROPOSTA CLICADA - DIV ID #editForm -->    
+       <div class="modal fade" id="modalAnexos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">  
+            <div class="modal-dialog modal-lg" role="document">  
+              <div class="modal-content">  
+                  <div class="modal-header">  
+                     <h2 class="modal-title" id="exampleModalLabel"><strong>Lista de anexos</strong></h2>  
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
+                      <span aria-hidden="true">×</span>  
+                     </button>  
+                  </div>
+                  <div class="modal-body">                  
+                      <div id="editForm">   
+                      </div> 
+                  </div> 
+                <div class='modal-footer'> 
+                        <form method="post" id="upload_form" enctype='multipart/form-data'>
+                            <p>Select Image</p>
+                         <p><input type="file" name="upload_file" class="input_upload_file" id="input_upload_file" /></p>
+                         <br />
+                         <input type="hidden" name="hidden_folder_name" id="hidden_folder_name" value="" />
+                         <input type="hidden" name="id_contrato_anexo" id="id_contrato_anexo" value="" />
+                         <!--<p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" value="Upload" /></p>-->
+                         <p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" id="btn_upload_anexo" data-id_contrato_anexo="" value="Upload" /></p>
+                        </form> 
+                     <button type='button' class='btn btn-secondary' data-dismiss='modal' style="font-size: 2.1em;">Close</button>                
+                </div>   
+              </div> 
+          </div>  
+       </div> 
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php
 // Header
