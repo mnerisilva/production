@@ -1,13 +1,8 @@
 <?php
+    session_start();
     include_once 'php_action/db_connect.php';
     if($_SESSION['login'] != true){
         header('Location: login.php');
-        die();
-    }
-    echo '<h2>Bom dia '.$_SESSION['usuario'].'.</h2>';   
-    if(isset($_GET['sair'])){
-        session_destroy();
-        header('Location: main.php');
         die();
     }
 ?>

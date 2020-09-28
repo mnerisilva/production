@@ -10,11 +10,11 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/pp.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?php echo $_SESSION['foto_usuario_link']; ?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bem-vindo,</span>
-                <h2>Thauan</h2>
+                <h2><?php echo $_SESSION['primeiro_nome_usuario']; ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->

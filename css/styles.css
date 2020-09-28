@@ -46,3 +46,19 @@
     min-width: inherit;
     color: #C4CFDA;
 }
+
+.lista-propostas .fa-circle {
+    font-size: .7rem;
+}
+
+#modalAnexos .modal-header {
+    background: rgb(25 42 59 / 94%);
+}
+
+#modalAnexos .modal-header .modal-title {
+    color: #fff;
+}
+
+#modalAnexos .modal-footer form {
+    width: 100%;
+}

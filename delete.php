@@ -51,7 +51,7 @@
                         <tr>
                             <td>".$dados2['id_contrato']."</td>
                             <td><a href='".$dados2['path_anexo']."/".$dados2['file_name_anexo']."' target='_BLANK'>".$dados2['file_name_anexo']."</a></td>
-                            <td><i class='fas fa-trash' data-id_contrato=".$dados2['id_contrato']." data-id_anexo=".$dados2['id_anexo']." data-path_anexo=".$dados2['path_anexo']." data-file_name_anexo='".$dados2['file_name_anexo']."'></i></td>                            
+                            <td><i class='fa fa-trash' data-id_contrato=".$dados2['id_contrato']." data-id_anexo=".$dados2['id_anexo']." data-path_anexo=".$dados2['path_anexo']." data-file_name_anexo='".$dados2['file_name_anexo']."'></i></td>                            
                         </tr>";
         }  
       }  

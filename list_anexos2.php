@@ -39,7 +39,7 @@
       //$output .= "<a class='color-icon-'".$extensao_file."' anexo' download href='".$dados2["path_anexo"]."/".$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'">'.$dados2['icone_anexo'].'</a>";
       
       
-      $output .= "<a class='color-icon-".$extensao." anexo' href='".$dados['path_anexo']."/".$dados['file_name_anexo']."' target='_BLANK' title='".$file_name_anexo."'><i class='far fa-file-image'></i></a>";
+      $output .= "<a class='color-icon-".$extensao." anexo' href='".$dados['path_anexo']."/".$dados['file_name_anexo']."' target='_BLANK' title='".$file_name_anexo."'><i class='fa fa-file-o'></i></a>";
       
       
         }  
