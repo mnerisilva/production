@@ -25,200 +25,278 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-            
-          <!-- tabela -->
-          <div class="table-responsive">
-          <table class="table table-striped jambo_table lista-propostas">
-            <thead>
-              <tr class="headings">
-                <th>
-                  <input type="checkbox" id="check-all" class="flat">
-                </th>
-                <th class="column-title">Prop </th>
-                <th class="column-title">Cliente </th>
-                <th class="column-title">Cpf </th>
-                <th class="column-title">Ade </th>
-                <th class="column-title">Parcela </th>
-                <th class="column-title">Situação </th>
-                <th class="column-title">Motivo </th>
-                <th class="column-title">Orgão </th>
-                <th class="column-title">Bco </th>
-                <th class="column-title">Anexos </th>
-                <th class="column-title"></th>
-                <th class="column-title"> </th>
-                <th class="column-title"> </th>
-                <th class="column-title no-link last"><span class="nobr">Action</span>
-                </th>
-                <th class="bulk-actions" colspan="7">
-                  <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-                </th>
-              </tr>
-            </thead>
+ 
 
-            <tbody>
-                
-                
-                
-                
-                
-                        <?php
-                        //$sql = "SELECT * FROM tab_clientes";
-                        $sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";
-                        /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
-                        
-                        $resultado = mysqli_query($connect, $sql);
-                        
-                        
 
-                        if(mysqli_num_rows($resultado) > 0):
 
-                        while($dados = mysqli_fetch_array($resultado)):
-                        ?>
-                            
-                            <?php echo '<tr class="even pointer" id="'. $dados['id_contrato'] . '">'; ?>
-                                      <!--<tr class="even pointer">-->
-                                        <td class="a-center ">
-                                          <input type="checkbox" class="flat" name="table_records">
-                                        </td>
-                            <?php echo '<td class="color-'. $dados['situa_contrato'] . ' cod-cliente" style="padding-right: 40px !important">'; ?>
-                            <?php echo $dados['id_contrato'].'</td>'; ?>
-                            <td class="td-nome"><?php echo $dados['nome_cli']; ?></td>
-                            <td class="td-cpf"><?php echo $dados['cpf_cli']; ?></td>
-                            <td class="td-ade"><?php echo $dados['ade_contrato']; ?></td>
-                            <td class="td-parce"><span class="span-parce"><?php echo number_format($dados['parce_contrato'],2,",","."); ?></span></td>
-                            <td class="td-situa">
-                                <?php                                
-                                   // busca descrição da situação na tabela situação
-                                    $id_situacao = $dados['situa_contrato'];
-                                    $sql3 = "SELECT id_situacao, descricao_situacao, motivo_descricao_situacao FROM tab_situacao WHERE ".$id_situacao." = id_situacao";
-                                    $resultado3 = mysqli_query($connect, $sql3);
-                                    $texto_id_situa = '';
-                                    $texto_motivo_situa = '';
-                                        while($dados3 = mysqli_fetch_array($resultado3)):
-                                            $texto_id_situa     = $dados3['descricao_situacao'];
-                                            $texto_motivo_situa = $dados3['motivo_descricao_situacao'];
-                                        endwhile;  
-                                
-                                ?>
-                                <?php //echo '<i class="fa fa-grip-horizontal"></i><span class="span-situa-1">&nbsp;</span>';?>
-                                <?php echo '<i class="fa fa-circle"></i> ' . strtolower($texto_id_situa); ?></td>
-                            <td class="td-motivo-situa"><?php echo $texto_motivo_situa; ?></td>
-                            <td class="td-orgao">
-                                <?php                                
-                                   // busca nome do orgao
-                                    $sql4 = "SELECT id_orgao, nome_orgao FROM tab_orgao WHERE ".$dados['id_orgao']." = id_orgao";
-                                    $resultado4 = mysqli_query($connect, $sql4);
-                                        while($dados4 = mysqli_fetch_array($resultado4)):
-                                            echo $dados4['nome_orgao'];
-                                        endwhile;  
-                                
-                                ?></td>
-                            <td class="td-bccompra">
-                                <?php                                
-                                   // busca nome do orgao
-                                    $sql5 = "SELECT id_bccompra_contrato, nome_bccompra FROM tab_bccompra WHERE ".$dados['id_bccompra_contrato']." = id_bccompra_contrato";
-                                    $resultado5 = mysqli_query($connect, $sql5);
-                                    $texto_id_situa = '';
-                                    $texto_motivo_situa = '';
-                                        while($dados5 = mysqli_fetch_array($resultado5)):
-                                            echo $dados5['nome_bccompra'];
-                                        endwhile;  
-                                
-                                ?></td>
-                            <td class="td-anexos">
-                                <?php 
-                                    // lista tabela de anexos para montar os ícones na respectiva coluna
-                                    $id_contrato = $dados['id_contrato'];
-                                    //$sql2 = "SELECT id_contrato, file_name_anexo, path_anexo FROM tab_anexos WHERE ".$id_contrato." = id_contrato";
-                                    $sql2 = "SELECT A.id_contrato, A.id_tipo_arquivo, A.file_name_anexo, A.path_anexo, T.id_tipo_arquivo, T.extensao_tipo_arquivo, T.icone_anexo FROM tab_anexos AS A INNER JOIN tab_tipo_arquivo_anexo AS T ON ".$id_contrato." = A.id_contrato WHERE A.id_tipo_arquivo = T.id_tipo_arquivo";
-                                    $resultado2 = mysqli_query($connect, $sql2);
-                                    $tem_anexo = false; // variável flag definida para determinas a exibição ou não do ícone "clips de papel" na coluna/linha, da proposta do contexto... "true" = com anexo, 'false' = sem anexo
-                                        while($dados2 = mysqli_fetch_array($resultado2)):
-                                            if($dados2['file_name_anexo'] <> '') {
-                                                $tem_anexo = true;
-                                                $array_file_name = explode('.', $dados2['file_name_anexo']);
-                                                $file_name = $array_file_name[0];
-                                                $extensao_file = $array_file_name[1];
-                                                $tipo_icone_anexo = $array_file_name[1];
-                                                if($extensao_file == 'jpg' || $extensao_file == 'jpeg'){$tipo_icone_anexo = 'image';}
-                                                //echo $dados2['file_name_anexo'];                                            
-                                                //echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'"><i class="far fa-file-'.$tipo_icone_anexo.'"></i></a>';                                           
-                                                echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.str_replace("", " ", $file_name).'" title="'.$file_name.'.'.$extensao_file.'">'.$dados2['icone_anexo'].'</a>';                                           
-                                            }
-                                        endwhile;                                     
-                                ?>
-                            </td>
-                
-                            
-                                        
-                            <td class="a-right a-right "><?php echo '<i class="fa fa-paperclip clip-anexo " data-toggle="modal" data-target="#modalAnexos" data-id="'.$dados['id_contrato'].'"></i>'; ?></td>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-              <!--<tr class="even pointer">-->
-                <!--<td class="a-center ">
-                  <input type="checkbox" class="flat" name="table_records">
-                </td>-->
-                <!--<td class=" ">1</td>-->
-                <!--<td class=" ">Carlos da Silva Junior </td>-->
-                <!--<td class=" ">125.445.887-54 <i class="success fa fa-long-arrow-up"></i></td>-->
-                <!--<td class=" ">865988 </td>-->
-                <!--<td class=" ">R$ 156,10</td>-->
-                <!--<td class="a-right a-right ">Aguardando </td>-->
-                <!--<td class="a-right a-right ">digitação </td>-->
-                <!--<td class="a-right a-right ">Inss </td>-->
-                <!--<td class="a-right a-right ">Banrisul</td>-->
-                <!--<td class="a-right a-right "></td>-->
-                <!--<td class="a-right a-right "><i class="fa fa-paperclip"></i></td>-->
-                <td class="a-right a-right "><i class="fa fa-edit"></i></td>
-                <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
-                <td class=" last"><a href="#">View</a>
-                </td>
-              </tr>
-                       <?php 
-                        endwhile;
-                        else: ?>
 
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
 
-                       <?php 
-                        endif;
-                       ?>
-            </tbody>
-          </table>
-        </div> 
+
+
+
+
+
+
+
+<!-- início Painel -->
+
+<div class="x_panel">
+								<div class="x_title">
+									<h2>Registration Form <small>Click to validate</small></h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+												<a class="dropdown-item" href="#">Settings 1</a>
+												<a class="dropdown-item" href="#">Settings 2</a>
+											</div>
+										</li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content" style="display: block;">
+
+									<!-- start form for validation -->           
+                                      <!-- tabela -->
+                                      <div class="table-responsive">
+                                      <table class="table table-striped jambo_table lista-propostas">
+                                        <thead>
+                                          <tr class="headings">
+                                            <th>
+                                              <input type="checkbox" id="check-all" class="flat">
+                                            </th>
+                                            <th class="column-title">Prop </th>
+                                            <th class="column-title">Cliente </th>
+                                            <th class="column-title">Cpf </th>
+                                            <th class="column-title">Ade </th>
+                                            <th class="column-title">Parcela </th>
+                                            <th class="column-title">Situação </th>
+                                            <th class="column-title">Motivo </th>
+                                            <th class="column-title">Orgão </th>
+                                            <th class="column-title">Bco </th>
+                                            <th class="column-title">Anexos </th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title"> </th>
+                                            <th class="column-title"> </th>
+                                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                          </tr>
+                                        </thead>
+
+                                        <tbody>
+
+
+
+
+
+                                                    <?php
+                                                    //$sql = "SELECT * FROM tab_clientes";
+                                                    $sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+
+                                                    $resultado = mysqli_query($connect, $sql);
+
+
+
+                                                    if(mysqli_num_rows($resultado) > 0):
+
+                                                    while($dados = mysqli_fetch_array($resultado)):
+                                                    ?>
+
+                                                        <?php echo '<tr class="even pointer" id="'. $dados['id_contrato'] . '">'; ?>
+                                                                  <!--<tr class="even pointer">-->
+                                                                    <td class="a-center ">
+                                                                      <input type="checkbox" class="flat" name="table_records">
+                                                                    </td>
+                                                        <?php echo '<td class="color-'. $dados['situa_contrato'] . ' cod-cliente" style="padding-right: 40px !important">'; ?>
+                                                        <?php echo $dados['id_contrato'].'</td>'; ?>
+                                                        <td class="td-nome"><?php echo $dados['nome_cli']; ?></td>
+                                                        <td class="td-cpf"><?php echo $dados['cpf_cli']; ?></td>
+                                                        <td class="td-ade"><?php echo $dados['ade_contrato']; ?></td>
+                                                        <td class="td-parce"><span class="span-parce"><?php echo number_format($dados['parce_contrato'],2,",","."); ?></span></td>
+                                                        <td class="td-situa">
+                                                            <?php                                
+                                                               // busca descrição da situação na tabela situação
+                                                                $id_situacao = $dados['situa_contrato'];
+                                                                $sql3 = "SELECT id_situacao, descricao_situacao, motivo_descricao_situacao FROM tab_situacao WHERE ".$id_situacao." = id_situacao";
+                                                                $resultado3 = mysqli_query($connect, $sql3);
+                                                                $texto_id_situa = '';
+                                                                $texto_motivo_situa = '';
+                                                                    while($dados3 = mysqli_fetch_array($resultado3)):
+                                                                        $texto_id_situa     = $dados3['descricao_situacao'];
+                                                                        $texto_motivo_situa = $dados3['motivo_descricao_situacao'];
+                                                                    endwhile;  
+
+                                                            ?>
+                                                            <?php //echo '<i class="fa fa-grip-horizontal"></i><span class="span-situa-1">&nbsp;</span>';?>
+                                                            <?php echo '<i class="fa fa-circle"></i> ' . strtolower($texto_id_situa); ?></td>
+                                                        <td class="td-motivo-situa"><?php echo $texto_motivo_situa; ?></td>
+                                                        <td class="td-orgao">
+                                                            <?php                                
+                                                               // busca nome do orgao
+                                                                $sql4 = "SELECT id_orgao, nome_orgao FROM tab_orgao WHERE ".$dados['id_orgao']." = id_orgao";
+                                                                $resultado4 = mysqli_query($connect, $sql4);
+                                                                    while($dados4 = mysqli_fetch_array($resultado4)):
+                                                                        echo $dados4['nome_orgao'];
+                                                                    endwhile;  
+
+                                                            ?></td>
+                                                        <td class="td-bccompra">
+                                                            <?php                                
+                                                               // busca nome do orgao
+                                                                $sql5 = "SELECT id_bccompra_contrato, nome_bccompra FROM tab_bccompra WHERE ".$dados['id_bccompra_contrato']." = id_bccompra_contrato";
+                                                                $resultado5 = mysqli_query($connect, $sql5);
+                                                                $texto_id_situa = '';
+                                                                $texto_motivo_situa = '';
+                                                                    while($dados5 = mysqli_fetch_array($resultado5)):
+                                                                        echo $dados5['nome_bccompra'];
+                                                                    endwhile;  
+
+                                                            ?></td>
+                                                        <td class="td-anexos">
+                                                            <?php 
+                                                                // lista tabela de anexos para montar os ícones na respectiva coluna
+                                                                $id_contrato = $dados['id_contrato'];
+                                                                //$sql2 = "SELECT id_contrato, file_name_anexo, path_anexo FROM tab_anexos WHERE ".$id_contrato." = id_contrato";
+                                                                $sql2 = "SELECT A.id_contrato, A.id_tipo_arquivo, A.file_name_anexo, A.path_anexo, T.id_tipo_arquivo, T.extensao_tipo_arquivo, T.icone_anexo FROM tab_anexos AS A INNER JOIN tab_tipo_arquivo_anexo AS T ON ".$id_contrato." = A.id_contrato WHERE A.id_tipo_arquivo = T.id_tipo_arquivo";
+                                                                $resultado2 = mysqli_query($connect, $sql2);
+                                                                $tem_anexo = false; // variável flag definida para determinas a exibição ou não do ícone "clips de papel" na coluna/linha, da proposta do contexto... "true" = com anexo, 'false' = sem anexo
+                                                                    while($dados2 = mysqli_fetch_array($resultado2)):
+                                                                        if($dados2['file_name_anexo'] <> '') {
+                                                                            $tem_anexo = true;
+                                                                            $array_file_name = explode('.', $dados2['file_name_anexo']);
+                                                                            $file_name = $array_file_name[0];
+                                                                            $extensao_file = $array_file_name[1];
+                                                                            $tipo_icone_anexo = $array_file_name[1];
+                                                                            if($extensao_file == 'jpg' || $extensao_file == 'jpeg'){$tipo_icone_anexo = 'image';}
+                                                                            //echo $dados2['file_name_anexo'];                                            
+                                                                            //echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'"><i class="far fa-file-'.$tipo_icone_anexo.'"></i></a>';                                           
+                                                                            echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.str_replace("", " ", $file_name).'" title="'.$file_name.'.'.$extensao_file.'">'.$dados2['icone_anexo'].'</a>';                                           
+                                                                        }
+                                                                    endwhile;                                     
+                                                            ?>
+                                                        </td>
+
+
+
+                                                        <td class="a-right a-right icone-clip-anexo"><?php echo '<i class="fa fa-paperclip clip-anexo " data-toggle="modal" data-target="#modalAnexos" data-id="'.$dados['id_contrato'].'"></i>'; ?></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                          <!--<tr class="even pointer">-->
+                                            <!--<td class="a-center ">
+                                              <input type="checkbox" class="flat" name="table_records">
+                                            </td>-->
+                                            <!--<td class=" ">1</td>-->
+                                            <!--<td class=" ">Carlos da Silva Junior </td>-->
+                                            <!--<td class=" ">125.445.887-54 <i class="success fa fa-long-arrow-up"></i></td>-->
+                                            <!--<td class=" ">865988 </td>-->
+                                            <!--<td class=" ">R$ 156,10</td>-->
+                                            <!--<td class="a-right a-right ">Aguardando </td>-->
+                                            <!--<td class="a-right a-right ">digitação </td>-->
+                                            <!--<td class="a-right a-right ">Inss </td>-->
+                                            <!--<td class="a-right a-right ">Banrisul</td>-->
+                                            <!--<td class="a-right a-right "></td>-->
+                                            <!--<td class="a-right a-right "><i class="fa fa-paperclip"></i></td>-->
+                                            <td class="a-right a-right "><i class="fa fa-edit"></i></td>
+                                            <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
+                                            <td class=" last"><a href="#">View</a>
+                                            </td>
+                                          </tr>
+                                                   <?php 
+                                                    endwhile;
+                                                    else: ?>
+
+                                                    <tr>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+
+                                                   <?php 
+                                                    endif;
+                                                   ?>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                     <!-- tabela -->
+									<!-- end form for validations -->
+
+								</div>
+							</div>
+<!-- fim Painel -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <!-- tabela -->
           <p>&nbsp;</p>
           <p>&nbsp;</p>
