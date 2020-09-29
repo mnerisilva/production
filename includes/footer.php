@@ -61,7 +61,7 @@
 <script type="text/javascript"> 
 (function(){
     
-    
+
     
     
       $(document).ready(function(){ 
@@ -75,6 +75,12 @@
               $('#parcefinal').mask('#.##0,00', {reverse: true});
               $('#ml').mask('#.##0,00', {reverse: true});
 
+          
+          $('.item-menu-proposta-cadastro').on('click', function(){
+              $('.painel-lista-propostas .collapse-link').click();
+              $('.painel-cadastro-proposta').show();
+              console.log('clicou no cadastro de proposta do menu lateral');
+          });
 
             //console.log('entrou na function javascript');
             //var id = $('input[name=orgao]').val();
