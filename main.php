@@ -63,7 +63,7 @@
 									<!-- start form for validation -->           
                                       <!-- tabela -->
                                       <div class="table-responsive">
-                                      <table class="table table-striped jambo_table lista-propostas">
+                                      <table class="table table-striped jambo_table lista-propostas table-condensed table-responsive">
                                         <thead>
                                           <tr class="headings">
                                             <th>
@@ -76,6 +76,7 @@
                                             <th class="column-title">Parcela </th>
                                             <th class="column-title">Situação </th>
                                             <th class="column-title">Motivo </th>
+                                            <th class="column-title">Histórico</th>
                                             <th class="column-title">Orgão </th>
                                             <th class="column-title">Bco </th>
                                             <th class="column-title">Anexos </th>
@@ -111,7 +112,6 @@
                                                     ?>
 
                                                         <?php echo '<tr class="even pointer" id="'. $dados['id_contrato'] . '">'; ?>
-                                                                  <!--<tr class="even pointer">-->
                                                                     <td class="a-center ">
                                                                       <input type="checkbox" class="flat" name="table_records">
                                                                     </td>
@@ -138,6 +138,7 @@
                                                             <?php //echo '<i class="fa fa-grip-horizontal"></i><span class="span-situa-1">&nbsp;</span>';?>
                                                             <?php echo '<i class="fa fa-circle"></i> ' . strtolower($texto_id_situa); ?></td>
                                                         <td class="td-motivo-situa"><?php echo $texto_motivo_situa; ?></td>
+                                                        <td class="icone-textarea-obs"><?php echo '<i class="fa fa-keyboard-o"></i>'; ?></td>
                                                         <td class="td-orgao">
                                                             <?php                                
                                                                // busca nome do orgao
@@ -191,48 +192,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                          <!--<tr class="even pointer">-->
-                                            <!--<td class="a-center ">
-                                              <input type="checkbox" class="flat" name="table_records">
-                                            </td>-->
-                                            <!--<td class=" ">1</td>-->
-                                            <!--<td class=" ">Carlos da Silva Junior </td>-->
-                                            <!--<td class=" ">125.445.887-54 <i class="success fa fa-long-arrow-up"></i></td>-->
-                                            <!--<td class=" ">865988 </td>-->
-                                            <!--<td class=" ">R$ 156,10</td>-->
-                                            <!--<td class="a-right a-right ">Aguardando </td>-->
-                                            <!--<td class="a-right a-right ">digitação </td>-->
-                                            <!--<td class="a-right a-right ">Inss </td>-->
-                                            <!--<td class="a-right a-right ">Banrisul</td>-->
-                                            <!--<td class="a-right a-right "></td>-->
-                                            <!--<td class="a-right a-right "><i class="fa fa-paperclip"></i></td>-->
-                                            <td class="a-right a-right "><i class="fa fa-edit"></i></td>
+                                            <td class="a-right a-right btn-editar-proposta "><i class="fa fa-edit"></i></td>
                                             <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
                                             <td class=" last"><a href="#">View</a>
                                             </td>
@@ -344,13 +304,24 @@
                                                 <input type="text" id="fullname" class="form-control" name="fullname" required="">
                                             </div>
                                         </div>
-                                        <div class="item form-group">
-											<div class="col-md-6 col-sm-6 offset-md-3">
-												<button class="btn btn-primary" type="button">Cancel</button>
-												<button class="btn btn-primary" type="reset">Reset</button>
-												<button type="submit" class="btn btn-secondaty">Submit</button>
-											</div>
-										</div>
+                                        
+                                       <div class="row mb-3">                                            
+                                                <div class="col-md-12 col-sm-12 offset-md-0">
+                                                      <label for="comment">Histórico:</label>
+                                                      <textarea class="form-control" rows="2" id="comment"></textarea>
+                                                </div>                                           
+                                        </div>
+                                        
+                                        <div class="row mb-3">
+                                            <div class="item form-group">
+                                                <div class="col-md-12 col-sm-12 offset-md-0">
+                                                    <button class="btn btn-primary" type="button">Cancel</button>
+                                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                                    <button type="submit" class="btn btn-secondary">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         
                                         
                                         
                                         

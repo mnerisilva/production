@@ -61,8 +61,28 @@
 <script type="text/javascript"> 
 (function(){
     
-
+      $('.painel-cadastro-proposta').addClass('esconde-elemento');
     
+      $(document).on('click','.btn-editar-proposta', function(){
+          $('.painel-lista-propostas').addClass('esconde-elemento');
+          $('.painel-lista-propostas .collapse-link').click();
+          $('.lista-propostas thead').css('opacity', 0);
+          var tr_selected = $(this).closest('tr');
+          tr_selected.css('transition','all .8s');
+          var id = tr_selected.attr('id');
+          var todas_as_linhas_do_tbody = $('.lista-propostas tbody');
+          $('.lista-propostas tbody tr').each(function(index){
+              console.log(index +' -- '+ $(this).html());
+              if($(this).attr('id') != id){
+                $(this).removeClass('selected').css('opacity', .4);  
+                $(this).css('color', '#ccc');  
+                //$(this).remove('');  
+              }            
+          });
+          var tr_selected = $(this).closest('tr');
+          tr_selected.addClass('selected');          
+          $('.painel-cadastro-proposta').removeClass('esconde-elemento');
+      })
     
       $(document).ready(function(){ 
               console.log('teste');
@@ -78,7 +98,8 @@
           
           $('.item-menu-proposta-cadastro').on('click', function(){
               $('.painel-lista-propostas .collapse-link').click();
-              $('.painel-cadastro-proposta').show();
+              //$('.painel-cadastro-proposta').show();
+              $('.painel-cadastro-proposta').removeClass('esconde-elemento');
               console.log('clicou no cadastro de proposta do menu lateral');
           });
 

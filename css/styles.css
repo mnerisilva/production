@@ -3,6 +3,11 @@
     cursor: pointer;
 }
 
+.btn-editar-proposta:hover {
+    color: darkorange;
+    cursor: pointer;
+}
+
 .icone-clip-anexo i {
     font-size: 1rem;
 }
@@ -11,6 +16,17 @@
     /*display: none !important;*/
 }
 
+
+.esconde-elemento {
+    display: none !important;
+    transition: all .5s;
+    
+}
+
+.selected {
+    background-color: #0062cc !important;
+    color: white;
+}
 
 
 
