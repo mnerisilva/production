@@ -45,10 +45,9 @@
                                                         //die();
                                                     
                                                         
-                                                        $json_dados = array ('id_contrato'=>$dados['id_contrato'], 'id_cli'=>$dados['id_cli'], 'ade_contrato'=>$dados['ade_contrato'], 'id_orgao'=>$dados['id_orgao']);
-                                                        //$encode[] = $dados;
+                                                        $json_dados = array ('id_contrato'=>$dados['id_contrato'], 'id_cli'=>$dados['id_cli'], 'ade_contrato'=>$dados['ade_contrato'], 'id_orgao'=>$dados['id_orgao'], 'bn_contrato'=>$dados['bn_contrato'], 'parce_contrato'=>$dados['parce_contrato'], 'opera_contrato'=>$dados['opera_contrato'], 'promo_contrato'=>$dados['promo_contrato'], 'vend_contrato'=>$dados['vend_contrato'], 'situa_contrato'=>$dados['situa_contrato'], 'id_bccompra_contrato'=>$dados['id_bccompra_contrato'], 'parceini_contrato'=>$dados['parceini_contrato'], 'parcefinal_contrato'=>$dados['parcefinal_contrato'], 'ml_contrato'=>$dados['ml_contrato'], 'observa_tab_contrato'=>$dados['observa_tab_contrato']);
+                                                        
                                                         echo json_encode($json_dados);
-                                                          //. ';' . $dados['parce_contrato'] . ';' . $dados['id_bccompra_contrato'] . ';' . $dados['situa_contrato'] . ';' . $dados['id_orgao'];
                                                         
                                                       
                                                         } 
