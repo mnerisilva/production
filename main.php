@@ -251,64 +251,64 @@
                                             </div>
                                             <div class="col-md-4 col-sm-4">
                                                 <label for="email">Órgão * :</label>
-                                                <input type="text" id="email" class="form-control" name="email" data-parsley-trigger="change" required="">
+                                                <input type="text" id="orgao" class="form-control" name="orgao" data-parsley-trigger="change" required="">
                                             </div>
                                             <div class="col-md-2 col-sm-2">
                                                 <label for="fullname">No. Benefício (bn) * :</label>
-                                                <input type="text" id="fullname" class="form-control" name="fullname" required="">
+                                                <input type="text" id="bn" class="form-control" name="bn" required="">
                                             </div>
                                             <div class="col-md-2 col-sm-2">
                                                 <label for="email">Parcela * :</label>
-                                                <input type="text" id="email" class="form-control" name="email" data-parsley-trigger="change" required="">
+                                                <input type="text" id="parce" class="form-control" name="parce" data-parsley-trigger="change" required="">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="fullname">Operação * :</label>
-                                                <input type="text" id="fullname" class="form-control" name="fullname" required="">
+                                                <input type="text" id="opera" class="form-control" name="opera" required="">
                                             </div>
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="email">promotora * :</label>
-                                                <input type="text" id="email" class="form-control" name="email" data-parsley-trigger="change" required="">
+                                                <input type="text" id="promo" class="form-control" name="promo" data-parsley-trigger="change" required="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <label for="fullname">Vendedor * :</label>
-                                                <input type="text" id="fullname" class="form-control" name="fullname" required="">
+                                                <input type="text" id="vend" class="form-control" name="vend" required="">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6 col-sm-6">
                                                 <label for="fullname">Situação * :</label>
-                                                <input type="text" id="fullname" class="form-control" name="fullname" required="">
+                                                <input type="text" id="situa" class="form-control" name="situa" required="">
                                             </div>
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="email">ade * :</label>
-                                                <input type="text" id="email" class="form-control" name="email" data-parsley-trigger="change" required="">
+                                                <input type="text" id="ade" class="form-control" name="ade" data-parsley-trigger="change" required="">
                                             </div>
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="fullname">Banco Comprador * :</label>
-                                                <input type="text" id="fullname" class="form-control" name="fullname" required="">
+                                                <input type="text" id="bccompra" class="form-control" name="bccompra" required="">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6 col-sm-6">
                                                 <label for="fullname">Parcela Inicial * :</label>
-                                                <input type="text" id="fullname" class="form-control" name="fullname" required="">
+                                                <input type="text" id="parceinicial" class="form-control" name="parceinicial" required="">
                                             </div>
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="email">Parcela Final * :</label>
-                                                <input type="text" id="email" class="form-control" name="email" data-parsley-trigger="change" required="">
+                                                <input type="text" id="parcefinal" class="form-control" name="parcefinal" data-parsley-trigger="change" required="">
                                             </div>
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="fullname">ML * :</label>
-                                                <input type="text" id="fullname" class="form-control" name="fullname" required="">
+                                                <input type="text" id="ml" class="form-control" name="ml" required="">
                                             </div>
                                         </div>
                                         
                                        <div class="row mb-3">                                            
                                                 <div class="col-md-12 col-sm-12 offset-md-0">
                                                       <label for="comment">Histórico:</label>
-                                                      <textarea class="form-control" rows="2" id="comment"></textarea>
+                                                      <textarea class="form-control" name="historico" rows="2" id="historico"></textarea>
                                                 </div>                                           
                                         </div>
                                         

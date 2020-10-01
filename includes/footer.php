@@ -86,14 +86,16 @@
           tr_selected.addClass('selected');          
           $('.painel-cadastro-proposta').removeClass('esconde-elemento');
                 $.ajax({  
-                     url:"captura_dados_proposta.php",  
+                     url:"captura_dados_proposta.php",
+                     dataType : "json",
                      type:"POST",  
                      cache:false,  
                      data:{id_proposta: id_proposta},  
                      success:function(data){
                          //console.log('data ajax select operação: '+data);
                          console.log('json ', data);
-                         $('#opera').html(data);
+                         $('#orgao').val(data.id_orgao);
+                         $('#ade').val(data.ade_contrato);
                      }  
                 })           
       })

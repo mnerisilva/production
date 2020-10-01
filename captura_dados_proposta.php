@@ -24,7 +24,7 @@
 
 
 
-                        $sql = "SELECT DISTINCT id_contrato, ade_contrato, parce_contrato, id_bccompra_contrato, situa_contrato, id_orgao FROM tab_propostas WHERE id_contrato = {$id_proposta}";
+                        $sql = "SELECT * FROM tab_propostas WHERE id_contrato = {$id_proposta}";
                                                       
           
                                                       $resultado = mysqli_query($connect, $sql);
@@ -44,7 +44,12 @@
                                                         //var_dump($dados);
                                                         //die();
                                                     
-                                                        echo $dados['ade_contrato'] . ' - ' . $dados['parce_contrato'] . ' - ' . $dados['id_bccompra_contrato'] . ' - ' . $dados['situa_contrato'] . ' - ' . $dados['id_orgao'];
+                                                        
+                                                        $json_dados = array ('id_contrato'=>$dados['id_contrato'], 'id_cli'=>$dados['id_cli'], 'ade_contrato'=>$dados['ade_contrato'], 'id_orgao'=>$dados['id_orgao']);
+                                                        //$encode[] = $dados;
+                                                        echo json_encode($json_dados);
+                                                          //. ';' . $dados['parce_contrato'] . ';' . $dados['id_bccompra_contrato'] . ';' . $dados['situa_contrato'] . ';' . $dados['id_orgao'];
+                                                        
                                                       
                                                         } 
                                                         
