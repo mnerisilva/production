@@ -192,7 +192,7 @@
 
 
 
-                                            <td class="a-right a-right btn-editar-proposta "><i class="fa fa-edit"></i></td>
+                                            <?php echo '<td class="a-right a-right btn-editar-proposta" data-id_proposta="'.$dados['id_contrato'].'" data-nome_cli="'.$dados['nome_cli'].'" data-cpf_cli="'.$dados['cpf_cli'].'" ><i class="fa fa-edit"></i></td>'; ?>
                                             <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
                                             <td class=" last"><a href="#">View</a>
                                             </td>
@@ -375,7 +375,7 @@
 									<!-- end form for validations -->
 
 								</div>
-							</div>
+							btn</div>
 
 
 

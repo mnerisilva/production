@@ -64,6 +64,9 @@
       $('.painel-cadastro-proposta').addClass('esconde-elemento');
     
       $(document).on('click','.btn-editar-proposta', function(){
+          var id_proposta = $(this).attr('data-id_proposta');
+          var nome_cli = $(this).attr('data-nome_cli');
+          var cpf_cli = $(this).attr('data-cpf_cli');
           $('.painel-lista-propostas').addClass('esconde-elemento');
           $('.painel-lista-propostas .collapse-link').click();
           $('.lista-propostas thead').css('opacity', 0);
@@ -72,7 +75,7 @@
           var id = tr_selected.attr('id');
           var todas_as_linhas_do_tbody = $('.lista-propostas tbody');
           $('.lista-propostas tbody tr').each(function(index){
-              console.log(index +' -- '+ $(this).html());
+              //console.log(index +' -- '+ $(this).html());
               if($(this).attr('id') != id){
                 $(this).removeClass('selected').css('opacity', .4);  
                 $(this).css('color', '#ccc');  
@@ -82,6 +85,17 @@
           var tr_selected = $(this).closest('tr');
           tr_selected.addClass('selected');          
           $('.painel-cadastro-proposta').removeClass('esconde-elemento');
+                $.ajax({  
+                     url:"captura_dados_proposta.php",  
+                     type:"POST",  
+                     cache:false,  
+                     data:{id_proposta: id_proposta},  
+                     success:function(data){
+                         //console.log('data ajax select operação: '+data);
+                         console.log('json ', data);
+                         $('#opera').html(data);
+                     }  
+                })           
       })
     
       $(document).ready(function(){ 
