@@ -96,6 +96,18 @@
                          console.log('json ', data);
                          $('#orgao').val(data.id_orgao);
                          $('#ade').val(data.ade_contrato);
+                         $('#bn').val(data.bn_contrato);
+                         $('#parce').val(data.parce_contrato);
+                         $('#opera').val(data.opera_contrato);
+                         $('#promo').val(data.promo_contrato);
+                         $('#vend').val(data.vend_contrato);
+                         $('#situa').val(data.situa_contrato);
+                         $('#bccompra').val(data.id_bccompra_contrato);
+                         $('#parceini').val(data.parceini_contrato);
+                         $('#parcefinal').val(data.parcefinal_contrato);
+                         $('#ml').val(data.ml_contrato);
+                         $('#historico').val(data.observa_tab_contrato);
+                         
                      }  
                 })           
       })

@@ -63,7 +63,7 @@
 									<!-- start form for validation -->           
                                       <!-- tabela -->
                                       <div class="table-responsive">
-                                      <table class="table table-striped jambo_table lista-propostas table-condensed table-responsive">
+                                      <table class="table table-striped jambo_table lista-propostas table-condensed">
                                         <thead>
                                           <tr class="headings">
                                             <th>
@@ -251,11 +251,25 @@
                                             </div>
                                             <div class="col-md-4 col-sm-4">
                                                 <label for="email">Órgão * :</label>
-                                                <input type="text" id="orgao" class="form-control" name="orgao" data-parsley-trigger="change" required="">
+                                                  <select class="form-control" name="orgao" id="orgao">
+                                                      <option value="">...</option>
+                                                      <option value="1">INSS</option>
+                                                      <option value="2">SIAPE</option>
+                                                      <option value="3">GOV SC</option>
+                                                  </select>
                                             </div>
                                             <div class="col-md-2 col-sm-2">
                                                 <label for="fullname">No. Benefício (bn) * :</label>
-                                                <input type="text" id="bn" class="form-control" name="bn" required="">
+                                                  <select class="form-control" name="bn" id="bn">
+                                                      <option value="">...</option>
+                                                      <option value="1">21</option>
+                                                      <option value="2">32</option>
+                                                      <option value="3">41</option>
+                                                      <option value="4">42</option>
+                                                      <option value="5">46</option>
+                                                      <option value="6">92</option>
+                                                      <option value="7">93</option>
+                                                  </select>
                                             </div>
                                             <div class="col-md-2 col-sm-2">
                                                 <label for="email">Parcela * :</label>
@@ -265,21 +279,54 @@
                                         <div class="row mb-3">
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="fullname">Operação * :</label>
-                                                <input type="text" id="opera" class="form-control" name="opera" required="">
+                                                  <select class="form-control" name="opera" id="opera">
+                                                      <option value="">...</option>
+                                                      <option value="1">Portabilidade</option>
+                                                      <option value="2">Porta + Refi</option>
+                                                      <option value="3">Contrato novo</option>
+                                                      <option value="4">Refinanciamento</option>
+                                                  </select>
                                             </div>
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="email">promotora * :</label>
-                                                <input type="text" id="promo" class="form-control" name="promo" data-parsley-trigger="change" required="">
+                                                  <select class="form-control" name="promo" id="promo">
+                                                      <option value="">...</option>
+                                                      <option value="1">LEWE</option>
+                                                      <option value="2">FONTES</option>
+                                                      <option value="3">GFT</option>
+                                                  </select>
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <label for="fullname">Vendedor * :</label>
-                                                <input type="text" id="vend" class="form-control" name="vend" required="">
+                                                  <select class="form-control" name="vend" id="vend">
+                                                      <option value="">...</option>
+                                                      <option value="1">Manoel</option>
+                                                      <option value="2">Thauan</option>
+                                                  </select>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6 col-sm-6">
                                                 <label for="fullname">Situação * :</label>
-                                                <input type="text" id="situa" class="form-control" name="situa" required="">
+                                                  <select class="form-control" name="situa" id="situa">
+                                                      <option value="">...</option>
+                                                      <option value="1">AGUARDANDO - digitação</option>
+                                                      <option value="2">AGUARDANDO - sldo devedor</option>
+                                                      <option value="3">AGUARDANDO - averbação</option>
+                                                      <option value="4">AVERBADO</option>
+                                                      <option value="5">AGUARDANDO - refinanciamento de portabilidade</option>
+                                                      <option value="6">PAGO</option>
+                                                      <option value="7">PENDENTE - anexar contrato</option>
+                                                      <option value="8">PENDENTE - documento pendente</option>
+                                                      <option value="9">CANCELADO - cliente retido</option>
+                                                      <option value="10">CANCELADO - no. do contrato não cancelado</option>
+                                                      <option value="11">CANCELADO - contrato com portabilidade</option>
+                                                      <option value="12">CANCELADO - cliente solicitou o cancelamento</option>
+                                                      <option value="13">CANCELADO - margem consignada excedida</option>
+                                                      <option value="14">CANCELADO - cliente com restrição interna</option>
+                                                      <option value="15">CANCELADO - cliente com margem negativa interna</option>
+                                                      <option value="16">CANCELADO - CPF irregular na Receita Federal</option>
+                                                  </select>
                                             </div>
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="email">ade * :</label>
@@ -287,13 +334,17 @@
                                             </div>
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="fullname">Banco Comprador * :</label>
-                                                <input type="text" id="bccompra" class="form-control" name="bccompra" required="">
+                                                  <select class="form-control" name="bccompra" id="bccompra">
+                                                      <option value="">...</option>
+                                                      <option value="1">BANRISUL</option>
+                                                      <option value="2">BRADESCO</option>
+                                                  </select>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6 col-sm-6">
                                                 <label for="fullname">Parcela Inicial * :</label>
-                                                <input type="text" id="parceinicial" class="form-control" name="parceinicial" required="">
+                                                <input type="text" id="parceini" class="form-control" name="parceini" required="">
                                             </div>
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="email">Parcela Final * :</label>
@@ -375,7 +426,7 @@
 									<!-- end form for validations -->
 
 								</div>
-							btn</div>
+							</div>
 
 
 
