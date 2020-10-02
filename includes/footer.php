@@ -61,6 +61,19 @@
 <script type="text/javascript"> 
 (function(){
     
+    
+
+function toBRL(n){
+    const formatter = new Intl.NumberFormat([], {
+        style: 'currency',
+        currency: 'BRL'
+    });
+    return formatter.format(n);
+}
+    
+    
+    
+    
       $('.painel-cadastro-proposta').addClass('esconde-elemento');
     
       $(document).on('click','.btn-editar-proposta', function(){
@@ -92,20 +105,28 @@
                      cache:false,  
                      data:{id_proposta: id_proposta},  
                      success:function(data){
-                         //console.log('data ajax select operação: '+data);
+                         // transforma valores monetários em float
+                         var parcela = data.parce_contrato * 1.0;
+                         var parceini = data.parceini_contrato * 1.0;
+                         var parcefinal = data.parcefinal_contrato * 1.0;
+                         var ml = data.ml_contrato * 1.0;
+                         
                          console.log('json ', data);
                          $('#orgao').val(data.id_orgao);
                          $('#ade').val(data.ade_contrato);
                          $('#bn').val(data.bn_contrato);
-                         $('#parce').val(data.parce_contrato);
+                         
+                         
+                         console.log(toBRL(parcela));
+                         $('#parce').val(toBRL(parcela));
                          $('#opera').val(data.opera_contrato);
                          $('#promo').val(data.promo_contrato);
                          $('#vend').val(data.vend_contrato);
                          $('#situa').val(data.situa_contrato);
                          $('#bccompra').val(data.id_bccompra_contrato);
-                         $('#parceini').val(data.parceini_contrato);
-                         $('#parcefinal').val(data.parcefinal_contrato);
-                         $('#ml').val(data.ml_contrato);
+                         $('#parceini').val(toBRL(parceini));
+                         $('#parcefinal').val(toBRL(parcefinal));
+                         $('#ml').val(toBRL(ml));
                          $('#historico').val(data.observa_tab_contrato);
                          
                      }  
