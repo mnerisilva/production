@@ -125,18 +125,19 @@
                                                             <?php                                
                                                                // busca descrição da situação na tabela situação
                                                                 $id_situacao = $dados['situa_contrato'];
-                                                                $sql3 = "SELECT id_situacao, descricao_situacao, motivo_descricao_situacao FROM tab_situacao WHERE ".$id_situacao." = id_situacao";
+                                                                $sql3 = "SELECT id_situacao, descricao_situacao, motivo_descricao_situacao, cor_situacao FROM tab_situacao WHERE ".$id_situacao." = id_situacao";
                                                                 $resultado3 = mysqli_query($connect, $sql3);
                                                                 $texto_id_situa = '';
                                                                 $texto_motivo_situa = '';
                                                                     while($dados3 = mysqli_fetch_array($resultado3)):
                                                                         $texto_id_situa     = $dados3['descricao_situacao'];
                                                                         $texto_motivo_situa = $dados3['motivo_descricao_situacao'];
+                                                                        $cor_situacao       = $dados3['cor_situacao'];
                                                                     endwhile;  
 
                                                             ?>
                                                             <?php //echo '<i class="fa fa-grip-horizontal"></i><span class="span-situa-1">&nbsp;</span>';?>
-                                                            <?php echo '<i class="fa fa-circle"></i> ' . strtolower($texto_id_situa); ?></td>
+                                                            <?php echo '<i class="fa fa-certificate" style="color: '.$cor_situacao .'"></i> ' . strtolower($texto_id_situa); ?></td>
                                                         <td class="td-motivo-situa"><?php echo $texto_motivo_situa; ?></td>
                                                         <td class="icone-textarea-obs"><?php echo '<i class="fa fa-keyboard-o"></i>'; ?></td>
                                                         <td class="td-orgao">
@@ -225,6 +226,9 @@
 <div class="x_panel painel-cadastro-proposta">
 								<div class="x_title">
 									<h2>Proposta <small>Cadastro</small></h2>
+                                    <h2 class="title-proposta"></h2>
+                                    <h2 class="title-cpf" style="margin-left: 10px;"></h2>
+                                    <h2 class="title-cli" style="margin-left: 10px; font-weight: 600; color: #2A3F54;"></h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -366,9 +370,11 @@
                                         <div class="row mb-3">
                                             <div class="item form-group">
                                                 <div class="col-md-12 col-sm-12 offset-md-0">
-                                                    <button class="btn btn-primary" type="button">Cancel</button>
-                                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                                    <button type="submit" class="btn btn-secondary">Submit</button>
+                                                    <a href="main.php" class="btn btn-success" type="button">Cancel</a>
+                                                    <!--<button class="btn btn-primary" type="button">Cancel</button>-->
+                                                    <!--<button class="btn btn-primary" type="reset">Reset</button>-->
+                                                    <!--<button type="submit" class="btn btn-secondary">Submit</button>-->
+                                                    <button type="submit" class="btn btn-secondary">Salvar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1188,15 +1194,15 @@
                   </div> 
                 <div class='modal-footer'> 
                         <form method="post" id="upload_form" enctype='multipart/form-data'>
-                            <p>Select Image</p>
+                            <p>Selecione o arquivo</p>
                          <p><input type="file" name="upload_file" class="input_upload_file" id="input_upload_file" /></p>
                          <br />
                          <input type="hidden" name="hidden_folder_name" id="hidden_folder_name" value="" />
                          <input type="hidden" name="id_contrato_anexo" id="id_contrato_anexo" value="" />
                          <!--<p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" value="Upload" /></p>-->
-                         <p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" id="btn_upload_anexo" data-id_contrato_anexo="" value="Upload" /></p>
+                         <p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" id="btn_upload_anexo" data-id_contrato_anexo="" value="Enviar" /></p>
                         </form> 
-                     <button type='button' class='btn btn-secondary' data-dismiss='modal' style="font-size: 2.1em;">Close</button>                
+                     <button type='button' class='btn btn-secondary' data-dismiss='modal' style="font-size: 2.1em;">Fechar</button>                
                 </div>   
               </div> 
           </div>  

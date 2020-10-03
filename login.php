@@ -51,7 +51,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>ConsignUp | </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -75,7 +75,7 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form method="POST">
-              <h1>Login Form</h1>
+              <h1>Entrar</h1>
               <div>
                 <input type="text" name="usuario" class="form-control" placeholder="Usuario" required="" />
               </div>
@@ -87,22 +87,23 @@
               </div>
               <div>
                 <!--<a class="btn btn-default submit" href="main.php">Log in</a>-->
-                <a class="reset_pass" href="#">Lost your password?</a>
+                <a class="reset_pass" href="#">Esqueceu sua senha?</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">New to site?
+                <!--<p class="change_link">New to site?
                   <a href="#signup" class="to_register"> Create Account </a>
-                </p>
+                </p>-->
 
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <!--<h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>-->
+                  <h1><i class="fa fa-cube"></i> ConsignUp</h1>
+                  <p>©2016 Todos os direitos reservados. ConsignUp Este é um tema Bootstrap. Termos de Privacidade</p>
                 </div>
               </div>
             </form>
@@ -137,8 +138,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <h1><i class="fa fa-paw"></i> ConsignApha!</h1>
+                  <p>©2016 Todos os direitos reservados. ConsignUp é um template Bootstrap 3. Termos de Privacidade</p>
                 </div>
               </div>
             </form>

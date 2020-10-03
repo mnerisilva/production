@@ -16,7 +16,8 @@
                           //$(document).find('#upload_form').find('#hidden_folder_name').attr('values','uploads/'+id_contrato);
                          $('#hidden_folder_name').val('uploads/'+id+'/').trigger('change');
                          $('#id_contrato_anexo').val(id).trigger('change');
-                         $('#btn_upload_anexo').val(id).trigger('change');
+                         //$('#btn_upload_anexo').val('hhhhh').trigger('change');
+                         $('#btn_upload_anexo').attr('data-id_contrato_anexo', id);
                          console.log($('#hidden_folder_name').attr('value')); 
                      },  
                 });  

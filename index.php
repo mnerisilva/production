@@ -944,15 +944,15 @@
                   </div> 
                 <div class='modal-footer'> 
                         <form method="post" id="upload_form" enctype='multipart/form-data'>
-                            <p>Select Image</p>
+                            <p>Selecione o arquivo</p>
                          <p><input type="file" name="upload_file" class="input_upload_file" id="input_upload_file" /></p>
                          <br />
                          <input type="hidden" name="hidden_folder_name" id="hidden_folder_name" value="" />
                          <input type="hidden" name="id_contrato_anexo" id="id_contrato_anexo" value="" />
                          <!--<p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" value="Upload" /></p>-->
-                         <p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" id="btn_upload_anexo" data-id_contrato_anexo="" value="Upload" /></p>
+                         <p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" id="btn_upload_anexo" data-id_contrato_anexo="" value="Enviar" /></p>
                         </form> 
-                     <button type='button' class='btn btn-secondary' data-dismiss='modal' style="font-size: 2.1em;">Close</button>                
+                     <button type='button' class='btn btn-secondary' data-dismiss='modal' style="font-size: 2.1em;">Fechar</button>                
                 </div>   
               </div> 
           </div>  

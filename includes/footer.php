@@ -47,6 +47,8 @@
     <!-- bootstrap-daterangepicker -->
     <script src="../vendors/moment/min/moment.min.js"></script>
     <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- jquery.inputmask -->
+    <!--<script src="../vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>-->
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
@@ -77,6 +79,7 @@ function toBRL(n){
       $('.painel-cadastro-proposta').addClass('esconde-elemento');
     
       $(document).on('click','.btn-editar-proposta', function(){
+          $('.painel-cadastro-proposta').addClass('mostra');
           var id_proposta = $(this).attr('data-id_proposta');
           var nome_cli = $(this).attr('data-nome_cli');
           var cpf_cli = $(this).attr('data-cpf_cli');
@@ -111,22 +114,32 @@ function toBRL(n){
                          var parcefinal = data.parcefinal_contrato * 1.0;
                          var ml = data.ml_contrato * 1.0;
                          
+                         
+                         //$('#fullname').closest('#demo-form').find('label').css('opacity', 0);
+                         $('#fullname').css('opacity', 0);
+                         $('#fullname').closest('div').find('label').css('opacity', 0);
+                         
+                         $('.painel-cadastro-proposta .x_title .title-proposta').text(id_proposta);
+                         $('.painel-cadastro-proposta .x_title .title-cpf').text(cpf_cli+' | ');
+                         $('.painel-cadastro-proposta .x_title .title-cli').text(nome_cli.toUpperCase());
                          console.log('json ', data);
                          $('#orgao').val(data.id_orgao);
                          $('#ade').val(data.ade_contrato);
-                         $('#bn').val(data.bn_contrato);
-                         
-                         
+                         $('#bn').val(data.bn_contrato);                         
                          console.log(toBRL(parcela));
-                         $('#parce').val(toBRL(parcela));
+                         //$('#parce').val(toBRL(parcela));
+                         $('#parce').val(parcela);
                          $('#opera').val(data.opera_contrato);
                          $('#promo').val(data.promo_contrato);
                          $('#vend').val(data.vend_contrato);
                          $('#situa').val(data.situa_contrato);
                          $('#bccompra').val(data.id_bccompra_contrato);
-                         $('#parceini').val(toBRL(parceini));
-                         $('#parcefinal').val(toBRL(parcefinal));
-                         $('#ml').val(toBRL(ml));
+                         //$('#parceini').val(toBRL(parceini));
+                         $('#parceini').val(parceini);
+                         //$('#parcefinal').val(toBRL(parcefinal));
+                         $('#parcefinal').val(parcefinal);
+                         //$('#ml').val(toBRL(ml));
+                         $('#ml').val(ml);
                          $('#historico').val(data.observa_tab_contrato);
                          
                      }  

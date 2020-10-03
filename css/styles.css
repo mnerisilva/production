@@ -28,6 +28,24 @@
     color: white;
 }
 
+.painel-cadastro-proposta {
+    opacity: 0 !important;
+}
+
+.mostra {
+    opacity: 1 !important;
+}
+
+.title-proposta {
+    margin-left: 8px !important;
+    margin-left: 10px;
+    font-weight: 600;
+    color: #fff !important;
+    border: solid thin;
+    border-radius: 4px;
+    padding: 1px 5px;
+    background: #2A3F54    
+}
 
 
 
