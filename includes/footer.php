@@ -57,6 +57,7 @@
     <script src="js/ajax/monta_lista_anexo_fetch.js"></script>
     <script src="js/ajax/apaga_anexo_da_lista_delete.js"></script>
     <script src="js/ajax/upload_arquivo_escolhido_upload.js"></script>
+    <script src="js/ajax/update_proposta.js"></script>
 	
   </body>
 </html>
@@ -84,22 +85,20 @@ function toBRL(n){
           var nome_cli = $(this).attr('data-nome_cli');
           var cpf_cli = $(this).attr('data-cpf_cli');
           $('.painel-lista-propostas').addClass('esconde-elemento');
-          $('.painel-lista-propostas .collapse-link').click();
-          $('.lista-propostas thead').css('opacity', 0);
+          //$('.painel-lista-propostas .collapse-link').click();
+          //$('.lista-propostas thead').css('opacity', 0);
           var tr_selected = $(this).closest('tr');
           tr_selected.css('transition','all .8s');
           var id = tr_selected.attr('id');
-          var todas_as_linhas_do_tbody = $('.lista-propostas tbody');
-          $('.lista-propostas tbody tr').each(function(index){
-              //console.log(index +' -- '+ $(this).html());
+          //var todas_as_linhas_do_tbody = $('.lista-propostas tbody');
+          /*$('.lista-propostas tbody tr').each(function(index){
               if($(this).attr('id') != id){
                 $(this).removeClass('selected').css('opacity', .4);  
                 $(this).css('color', '#ccc');  
-                //$(this).remove('');  
               }            
-          });
-          var tr_selected = $(this).closest('tr');
-          tr_selected.addClass('selected');          
+          });*/
+          /*var tr_selected = $(this).closest('tr');
+          tr_selected.addClass('selected');*/         
           $('.painel-cadastro-proposta').removeClass('esconde-elemento');
                 $.ajax({  
                      url:"captura_dados_proposta.php",
@@ -108,6 +107,7 @@ function toBRL(n){
                      cache:false,  
                      data:{id_proposta: id_proposta},  
                      success:function(data){
+                         console.log('xxxx: '+data.id_contrato);
                          // transforma valores monetários em float
                          var parcela = data.parce_contrato * 1.0;
                          var parceini = data.parceini_contrato * 1.0;
@@ -116,13 +116,15 @@ function toBRL(n){
                          
                          
                          //$('#fullname').closest('#demo-form').find('label').css('opacity', 0);
-                         $('#fullname').css('opacity', 0);
-                         $('#fullname').closest('div').find('label').css('opacity', 0);
+                         $('#nome_cli').css('opacity', 0);
+                         $('#nome_cli').closest('div').find('label').css('opacity', 0);
                          
                          $('.painel-cadastro-proposta .x_title .title-proposta').text(id_proposta);
                          $('.painel-cadastro-proposta .x_title .title-cpf').text(cpf_cli+' | ');
                          $('.painel-cadastro-proposta .x_title .title-cli').text(nome_cli.toUpperCase());
                          console.log('json ', data);
+                         $('#id_proposta_update').val(data.id_contrato);
+                         $('#id_cli').val(data.id_cli);
                          $('#orgao').val(data.id_orgao);
                          $('#ade').val(data.ade_contrato);
                          $('#bn').val(data.bn_contrato);                         
@@ -140,7 +142,7 @@ function toBRL(n){
                          $('#parcefinal').val(parcefinal);
                          //$('#ml').val(toBRL(ml));
                          $('#ml').val(ml);
-                         $('#historico').val(data.observa_tab_contrato);
+                         $('#observa_tab_contrato').val(data.observa_tab_contrato);
                          
                      }  
                 })           

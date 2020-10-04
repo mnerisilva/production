@@ -247,11 +247,14 @@
 								<div class="x_content">
 
 									<!-- start form for validation -->
-									<form id="demo-form" data-parsley-validate="" novalidate="">
+									<form id="form_update_proposta" method="POST">
                                         <div class="row">
+                                            <input type="hidden" name="id_proposta_update" id="id_proposta_update" value="">
+                                            <input type="hidden" name="matribn" id="matribn" value="">
+                                            <input type="hidden" name="observa_tab_contrato" id="observa_tab_contrato" value="">
                                             <div class="col-md-4 col-sm-4">
-                                                <label for="fullname">Cliente * :</label>
-                                                <input type="text" id="fullname" class="form-control" name="fullname" required="">
+                                                <label for="nome_cli">Cliente * :</label>
+                                                <input type="text" id="nome_cli" class="form-control" name="nome_cli">
                                             </div>
                                             <div class="col-md-4 col-sm-4">
                                                 <label for="email">Órgão * :</label>
@@ -311,7 +314,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6 col-sm-6">
-                                                <label for="fullname">Situação * :</label>
+                                                <label for="situa">Situação * :</label>
                                                   <select class="form-control" name="situa" id="situa">
                                                       <option value="">...</option>
                                                       <option value="1">AGUARDANDO - digitação</option>
@@ -334,10 +337,10 @@
                                             </div>
                                             <div class="col-md-3 col-sm-3">
                                                 <label for="email">ade * :</label>
-                                                <input type="text" id="ade" class="form-control" name="ade" data-parsley-trigger="change" required="">
+                                                <input type="text" id="ade" class="form-control" name="ade" data-parsley-trigger="change">
                                             </div>
                                             <div class="col-md-3 col-sm-3">
-                                                <label for="fullname">Banco Comprador * :</label>
+                                                <label for="bccompra">Banco Comprador * :</label>
                                                   <select class="form-control" name="bccompra" id="bccompra">
                                                       <option value="">...</option>
                                                       <option value="1">BANRISUL</option>
@@ -374,7 +377,7 @@
                                                     <!--<button class="btn btn-primary" type="button">Cancel</button>-->
                                                     <!--<button class="btn btn-primary" type="reset">Reset</button>-->
                                                     <!--<button type="submit" class="btn btn-secondary">Submit</button>-->
-                                                    <button type="submit" class="btn btn-secondary">Salvar</button>
+                                                    <button type="submit" name="btn-submit-update-proposta" id="btn-update-proposta" class="btn btn-secondary" data-id_contrato="">Salvar</button>
                                                 </div>
                                             </div>
                                         </div>
