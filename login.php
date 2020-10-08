@@ -4,7 +4,8 @@
     include_once 'php_action/db_connect.php';
     if(isset($_POST['acao'])){
         $usuario = $_POST['usuario'];
-        $senha = $_POST['senha'];
+        //$senha = $_POST['senha'];
+        $senha = '123456';
         
  
                                  
