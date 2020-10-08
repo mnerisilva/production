@@ -1,4 +1,6 @@
 <?php
+
+   
     session_start();
     include_once 'php_action/db_connect.php';
     if($_SESSION['login'] != true){
