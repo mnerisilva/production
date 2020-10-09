@@ -10,7 +10,8 @@
       $ade_contrato = $_POST['ade']; 
       $id_orgao = $_POST['orgao']; 
       $bn_contrato = $_POST['bn']; 
-      $matribn_contrato = $_POST['matribn']; 
+      //$matribn_contrato = $_POST['matribn'];
+      $matribn_contrato = '';
       $parce_contrato = $_POST['parce']; 
       $opera_contrato = $_POST['opera']; 
       $promo_contrato = $_POST['promo']; 

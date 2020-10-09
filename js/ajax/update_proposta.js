@@ -10,7 +10,7 @@
  
         //$('form#form_update_proposta').on('submit', function (e) {
         
-        var id_contrato = $(this).attr('data-id_contrato');
+        var id_contrato = $(this).attr('data-id_proposta');
         
         console.log('entrou aqui: ' + id_contrato);
 
@@ -30,9 +30,9 @@
           $.ajax({
             type: 'post',
             url: 'atualiza_linha_proposta_editada.php',
-            data: {id_contrato: id_contrato},
+            data: {id_proposta: id_contrato},
             success: function (data) {
-                console.log(data);
+                console.log('json retornado com a linha afetada: ' + data);
                 var linha = $('#td_'+id_contrato);
                 linha.css('opacity','0');
             }

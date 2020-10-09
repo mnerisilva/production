@@ -139,7 +139,7 @@
 
                                                             ?>
                                                             <?php //echo '<i class="fa fa-grip-horizontal"></i><span class="span-situa-1">&nbsp;</span>';?>
-                                                            <?php echo '<i class="fa fa-certificate" style="color: '.$cor_situacao .'"></i> ' . strtolower($texto_id_situa); ?></td>
+                                                            <?php echo '<i class="fa fa-certificate" style="background: '.$cor_situacao .'; color: '.$cor_situacao .'"></i> ' . strtolower($texto_id_situa); ?></td>
                                                         <td class="td-motivo-situa"><?php echo $texto_motivo_situa; ?></td>
                                                         <td class="icone-textarea-obs"><?php echo '<i class="fa fa-keyboard-o"></i>'; ?></td>
                                                         <td class="td-orgao">
