@@ -113,7 +113,7 @@
                                                     while($dados = mysqli_fetch_array($resultado)):
                                                     ?>
 
-                                                        <?php echo '<tr class="even pointer" id="'. $dados['id_contrato'] . '">'; ?>
+                                                        <?php echo '<tr class="even pointer" id="td_'. $dados['id_contrato'] . '">'; ?>
                                                                     <td class="a-center ">
                                                                       <input type="checkbox" class="flat" name="table_records">
                                                                     </td>
@@ -379,7 +379,7 @@
                                                     <!--<button class="btn btn-primary" type="button">Cancel</button>-->
                                                     <!--<button class="btn btn-primary" type="reset">Reset</button>-->
                                                     <!--<button type="submit" class="btn btn-secondary">Submit</button>-->
-                                                    <button type="submit" name="btn-submit-update-proposta" id="btn-update-proposta" class="btn btn-secondary" data-id_contrato="">Salvar</button>
+                                                    <button type="button" name="btn-submit-update-proposta" id="btn-update-proposta" class="btn btn-secondary" data-id_contrato="">Salvar</button>
                                                 </div>
                                             </div>
                                         </div>

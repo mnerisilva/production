@@ -98,7 +98,11 @@ function toBRL(n){
               }            
           });*/
           /*var tr_selected = $(this).closest('tr');
-          tr_selected.addClass('selected');*/         
+          tr_selected.addClass('selected');*/  
+          
+          $('.painel-cadastro-proposta').find('#btn-update-proposta').attr('data-id_contrato', id_proposta);
+          
+          
           $('.painel-cadastro-proposta').removeClass('esconde-elemento');
                 $.ajax({  
                      url:"captura_dados_proposta.php",

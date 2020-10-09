@@ -30,7 +30,7 @@
                                                         
                                                            // $json_dados = array ('id_contrato'=>$dados['id_contrato'], 'nome_cli'=>$dados['nome_cli'], 'cpf_cli'=>$dados['cpf_cli'], 'ade_contrato'=>$dados['ade_contrato'], 'id_orgao'=>$dados['id_orgao'], 'parce_contrato'=>$dados['parce_contrato'], 'situa_contrato'=>$dados['situa_contrato'], 'id_bccompra_contrato'=>$dados['id_bccompra_contrato']);
                                                             
-                                                            $json_dados = array ('id_contrato'=>$dados['id_contrato'], 'nome_cli'=>$dados['nome_cli'], 'cpf_cli'=>$dados['cpf_cli'], 'ade_contrato'=>$dados['ade_contrato'], 'nome_orgao'=>nome_orgao($dados['id_orgao'], $connect), 'parce_contrato'=>$dados['parce_contrato'], 'descricao_situacao'=>descricao_situacao($dados['situa_contrato'], $connect), 'cor_situacao'=>cor_situacao($dados['situa_contrato'], $connect), 'id_bccompra_contrato'=>$dados['id_bccompra_contrato']);
+                                                            $json_dados = array ('id_contrato'=>$dados['id_contrato'], 'nome_cli'=>$dados['nome_cli'], 'cpf_cli'=>$dados['cpf_cli'], 'ade_contrato'=>$dados['ade_contrato'], 'nome_orgao'=>nome_orgao($dados['id_orgao'], $connect), 'parce_contrato'=>$dados['parce_contrato'], 'descricao_situacao'=>descricao_situacao($dados['situa_contrato'], $connect), 'cor_situacao'=>cor_situacao($dados['situa_contrato'], $connect), 'bccompra_nome'=>nome_bccompra($dados['id_bccompra_contrato'], $connect));
 
                                                             echo json_encode($json_dados, JSON_UNESCAPED_UNICODE);                                                            
                                                             
@@ -207,6 +207,53 @@
 
 
                                                                         return $dados_cor_situacao['cor_situacao'];
+
+
+
+                                                                    }
+                                                                }    
+
+
+
+            }  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            function nome_bccompra($id_bccompra_contrato, $connect){
+
+
+                                                                //$sql = "SELECT * FROM tab_clientes";
+                                                                $sql_nome_bccompra = "SELECT * FROM tab_bccompra WHERE id_bccompra_contrato = {$id_bccompra_contrato} LIMIT 1";
+                                                                /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+
+                                                                $resultado_nome_bccompra = mysqli_query($connect, $sql_nome_bccompra);
+
+
+
+                                                                if(mysqli_num_rows($resultado_nome_bccompra) > 0){
+
+                                                                    while($dados_nome_bccompra = mysqli_fetch_array($resultado_nome_bccompra)){
+
+
+                                                                        return $dados_nome_bccompra['nome_bccompra'];
 
 
 
