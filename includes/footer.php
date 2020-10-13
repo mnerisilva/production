@@ -76,19 +76,26 @@ function toBRL(n){
     
     
     
-    
-      $('.painel-cadastro-proposta').addClass('esconde-elemento');
+      setTimeout(function(){
+          $('.painel-cadastro-proposta').addClass('esconde-elemento');
+      },1000);
+      
     
       $(document).on('click','.btn-editar-proposta', function(){
-          $('.painel-cadastro-proposta').addClass('mostra');
+          setTimeout(function(){
+            $('.painel-cadastro-proposta').addClass('mostra');              
+          },1000);
           var id_proposta = $(this).attr('data-id_proposta');
           var nome_cli = $(this).attr('data-nome_cli');
           var cpf_cli = $(this).attr('data-cpf_cli');
-          $('.painel-lista-propostas').addClass('esconde-elemento');
+          setTimeout(function(){
+            $('.painel-lista-propostas').addClass('esconde-elemento');              
+          },1000);
           //$('.painel-lista-propostas .collapse-link').click();
           //$('.lista-propostas thead').css('opacity', 0);
           var tr_selected = $(this).closest('tr');
           tr_selected.css('transition','all .8s');
+          tr_selected.addClass('selected');
           var id = tr_selected.attr('id');
           //var todas_as_linhas_do_tbody = $('.lista-propostas tbody');
           /*$('.lista-propostas tbody tr').each(function(index){
@@ -103,7 +110,9 @@ function toBRL(n){
           $('.painel-cadastro-proposta').find('#btn-update-proposta').attr('data-id_proposta', id_proposta);
           
           
-          $('.painel-cadastro-proposta').removeClass('esconde-elemento');
+          setTimeout(function(){
+            $('.painel-cadastro-proposta').removeClass('esconde-elemento');              
+          },1000);
                 $.ajax({  
                      url:"captura_dados_proposta.php",
                      dataType : "json",

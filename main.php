@@ -85,7 +85,7 @@
                                             <th class="column-title"></th>
                                             <th class="column-title"> </th>
                                             <th class="column-title"> </th>
-                                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                                            <th class="column-title no-link last"><span class="nobr">&nbsp;</span>
                                             </th>
                                             <th class="bulk-actions" colspan="7">
                                               <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
@@ -197,7 +197,8 @@
 
                                             <?php echo '<td class="a-right a-right btn-editar-proposta" data-id_proposta="'.$dados['id_contrato'].'" data-nome_cli="'.$dados['nome_cli'].'" data-cpf_cli="'.$dados['cpf_cli'].'" ><i class="fa fa-edit"></i></td>'; ?>
                                             <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
-                                            <td class=" last"><a href="#">View</a>
+                                            <!--<td class=" last"><a href="#">View</a>-->
+                                            <td class=" last"><a href="#"><i class="fa fa-eye"></i></a>
                                             </td>
                                           </tr>
                                                    <?php 
