@@ -47,7 +47,23 @@
     background: #2A3F54    
 }
 
+.td-anexos {
+    max-width: 4em;
+}
 
+
+.td-parce {
+    text-align: right;
+    padding-right: 25px !important;    
+}
+
+.icone-clip-anexo {
+    border-right: solid thin #e6e5e5;
+}
+
+.td-anexos {
+    border-left: solid thin #e6e5e5;
+}
 
 
 

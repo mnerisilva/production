@@ -11,8 +11,8 @@
                          success:function(data){  
                               //$("#editForm").find('table').find('tbody').html(data);
                              console.log('data: '+data);
-                             $('#'+id_contrato).find('.td-anexos').html('');
-                             $('#'+id_contrato).find('.td-anexos').append(data);
+                             $('#td_'+id_contrato).find('.td-anexos').html('');
+                             $('#td_'+id_contrato).find('.td-anexos').append(data);
                          },  
                     });
 
