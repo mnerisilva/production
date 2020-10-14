@@ -44,7 +44,7 @@
 
 <div class="x_panel painel-lista-propostas">
 								<div class="x_title">
-									<h2>Propostas<small>Lista suspensa</small></h2>
+									<h2>Propostas<small>Lista suspensa</small> <a href="" data-toggle="modal" data-target="#addProposta"><i class="fa fa-plus-circle fa-2x"></i></a></h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -1200,7 +1200,7 @@
                   </div> 
                 <div class='modal-footer'> 
                         <form method="post" id="upload_form" enctype='multipart/form-data'>
-                            <p>Selecione o arquivo</p>
+                            <p style="width: 100%;">Selecione o arquivo <span class="message-file-exist"></span></p>
                          <p><input type="file" name="upload_file" class="input_upload_file" id="input_upload_file" /></p>
                          <br />
                          <input type="hidden" name="hidden_folder_name" id="hidden_folder_name" value="upload" />
@@ -1216,6 +1216,44 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <!-- JANELA MODAL inseir propotas novas -->    
+        <!-- Modal -->
+<!-- Modal -->
+<!-- Modal -->
+        <div class="modal fade" id="addProposta" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
 

@@ -67,7 +67,13 @@
 
 
 
-
+.message-file-exist {
+    color: red;
+    font-weight: 600;
+    font-size: 1em;
+    text-align: center;
+    margin-left: .8em;    
+}
 
 
 

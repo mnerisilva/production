@@ -48,16 +48,23 @@
                    cache: false,
                    processData:false,
                    success: function(data) { 
-                       console.log(data);
+                       
                        // depois de subir o arquivo, limpa o valor: 'val' do input que continha o nome do arquivo
-                       $(e.target).find('#input_upload_file').val('');
-                       //var id_contrato_anexo = $('#btn_upload_anexo').val();
-                       var id_contrato_anexo = $('#btn_upload_anexo').attr('data-id_contrato_anexo');
-                       $("#btn_upload_anexo").prop("disabled", false);
-                       lista_anexos(id_contrato_anexo);
-                       lista_anexos2upload(id_contrato_anexo);
-                        //load_folder_list();
-                        //alert(data);
+                       
+                       if(data === '1'){
+                            $('#upload_form').find('.message-file-exist').text('ATENÇÃO! O arquivo já existe! Renomeie!');
+                            setTimeout(function(){$('#upload_form').find('.message-file-exist').text('');}, 1000);
+                            $("#btn_upload_anexo").prop("disabled", false);
+                          } else { 
+                               $(e.target).find('#input_upload_file').val('');
+                               //var id_contrato_anexo = $('#btn_upload_anexo').val();
+                               var id_contrato_anexo = $('#btn_upload_anexo').attr('data-id_contrato_anexo');
+                               $("#btn_upload_anexo").prop("disabled", false);
+                               lista_anexos(id_contrato_anexo);
+                               lista_anexos2upload(id_contrato_anexo);  
+                          }
+                       
+                       
                        }
                   });
              }); 
