@@ -25,6 +25,17 @@
                 $diretorio = $_POST["hidden_folder_name"];
                 $path = $_POST["hidden_folder_name"] . $_FILES["upload_file"]["name"];
                  
+if (is_file($path))
+    {
+        echo "true";
+    }
+    else
+    {
+        echo "false";
+    } 
+
+                 die();
+                 
                    if(!is_dir($diretorio)){ 
                        //echo 'Pasta "uploads/50/" nao existe';
                        mkdir($diretorio);
