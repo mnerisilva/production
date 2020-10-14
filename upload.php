@@ -3,6 +3,8 @@
     // Conexão
     include_once 'php_action/db_connect.php';
 
+         //var_dump($_FILES);
+         //echo 'Nome do arquivo: '.$_FILES["upload_file"]["name"];
          //die();
          
     if($_FILES["upload_file"]["name"] != '') {
@@ -11,7 +13,8 @@
          $allowed_extension = array("doc", "docx", "gif", "jpg", "jpeg", "pdf", "png", "txt");
          $id_tipo_de_arquivo = (int) array_search($extension, $allowed_extension)+1;
                  
-         //var_dump($_POST);        
+         //var_dump($_POST);   
+         //echo '<br />';
          //var_dump($_FILES);
          //echo '$extension: ' . $extension;
          //echo '<br>$id_tipo_de_arquivo: ' . $id_tipo_de_arquivo;

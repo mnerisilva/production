@@ -1203,7 +1203,7 @@
                             <p>Selecione o arquivo</p>
                          <p><input type="file" name="upload_file" class="input_upload_file" id="input_upload_file" /></p>
                          <br />
-                         <input type="hidden" name="hidden_folder_name" id="hidden_folder_name" value="" />
+                         <input type="hidden" name="hidden_folder_name" id="hidden_folder_name" value="upload" />
                          <input type="hidden" name="id_contrato_anexo" id="id_contrato_anexo" value="" />
                          <!--<p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" value="Upload" /></p>-->
                          <p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" id="btn_upload_anexo" data-id_contrato_anexo="" value="Enviar" /></p>
