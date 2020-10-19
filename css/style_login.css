@@ -1,9 +1,11 @@
 .login {
-    background: ;
+    background-image: url(../images/fundo_geleira.jpg) !important;
+    background: rgb(42,63,84) !important;
+    background: linear-gradient(0deg, rgba(42,63,84,1) 0%, rgba(151,166,181,0.1718858011652914) 100%);
 }
 
 body {
-    background: url(../images/business-3528035_1920.jpg) !important;
+    
 }
 
 .login_content {

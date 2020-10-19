@@ -1186,7 +1186,7 @@
 
        <!-- JANELA MODAL COM A LISTA DE ANEXOS DA PROPOSTA CLICADA - DIV ID #editForm -->    
        <div class="modal fade" id="modalAnexos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">  
-            <div class="modal-dialog modal-lg" role="document">  
+            <div class="modal-dialog modal-xl" role="document">  
               <div class="modal-content">  
                   <div class="modal-header">  
                      <h2 class="modal-title" id="exampleModalLabel"><strong>Lista de anexos</strong></h2>  
@@ -1245,11 +1245,144 @@
                 </button>
               </div>
               <div class="modal-body">
-                ...
+                  <div class="form-nova-proposta">
+                        <form id="form_insert_proposta" method="POST">
+                                        <div class="row">
+                                            <input type="hidden" name="id_proposta_update" id="id_proposta_update" value="">
+                                            <input type="hidden" name="matribn" id="matribn" value="">
+                                            <input type="hidden" name="observa_tab_contrato" id="observa_tab_contrato" value="">
+                                            <div class="col-md-4 col-sm-4">
+                                                <label for="nome_cli">Cliente * :</label>
+                                                <input type="text" id="nome_cli" class="form-control" name="nome_cli">
+                                            </div>
+                                            <div class="col-md-4 col-sm-4">
+                                                <label for="email">Órgão * :</label>
+                                                  <select class="form-control" name="orgao" id="orgao">
+                                                      <option value="">...</option>
+                                                      <option value="1">INSS</option>
+                                                      <option value="2">SIAPE</option>
+                                                      <option value="3">GOV SC</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <label for="fullname">No. Benefício (bn) * :</label>
+                                                  <select class="form-control" name="bn" id="bn">
+                                                      <option value="">...</option>
+                                                      <option value="1">21</option>
+                                                      <option value="2">32</option>
+                                                      <option value="3">41</option>
+                                                      <option value="4">42</option>
+                                                      <option value="5">46</option>
+                                                      <option value="6">92</option>
+                                                      <option value="7">93</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <label for="email">Parcela * :</label>
+                                                <input type="text" id="parce" class="form-control" name="parce" data-parsley-trigger="change" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="fullname">Operação * :</label>
+                                                  <select class="form-control" name="opera" id="opera">
+                                                      <option value="">...</option>
+                                                      <option value="1">Portabilidade</option>
+                                                      <option value="2">Porta + Refi</option>
+                                                      <option value="3">Contrato novo</option>
+                                                      <option value="4">Refinanciamento</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="email">promotora * :</label>
+                                                  <select class="form-control" name="promo" id="promo">
+                                                      <option value="">...</option>
+                                                      <option value="1">LEWE</option>
+                                                      <option value="2">FONTES</option>
+                                                      <option value="3">GFT</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <label for="fullname">Vendedor * :</label>
+                                                  <select class="form-control" name="vend" id="vend">
+                                                      <option value="">...</option>
+                                                      <option value="1">Manoel</option>
+                                                      <option value="2">Thauan</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6 col-sm-6">
+                                                <label for="situa">Situação * :</label>
+                                                  <select class="form-control" name="situa" id="situa">
+                                                      <option value="">...</option>
+                                                      <option value="1">AGUARDANDO - digitação</option>
+                                                      <option value="2">AGUARDANDO - sldo devedor</option>
+                                                      <option value="3">AGUARDANDO - averbação</option>
+                                                      <option value="4">AVERBADO</option>
+                                                      <option value="5">AGUARDANDO - refinanciamento de portabilidade</option>
+                                                      <option value="6">PAGO</option>
+                                                      <option value="7">PENDENTE - anexar contrato</option>
+                                                      <option value="8">PENDENTE - documento pendente</option>
+                                                      <option value="9">CANCELADO - cliente retido</option>
+                                                      <option value="10">CANCELADO - no. do contrato não cancelado</option>
+                                                      <option value="11">CANCELADO - contrato com portabilidade</option>
+                                                      <option value="12">CANCELADO - cliente solicitou o cancelamento</option>
+                                                      <option value="13">CANCELADO - margem consignada excedida</option>
+                                                      <option value="14">CANCELADO - cliente com restrição interna</option>
+                                                      <option value="15">CANCELADO - cliente com margem negativa interna</option>
+                                                      <option value="16">CANCELADO - CPF irregular na Receita Federal</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="email">ade * :</label>
+                                                <input type="text" id="ade" class="form-control" name="ade" data-parsley-trigger="change">
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="bccompra">Banco Comprador * :</label>
+                                                  <select class="form-control" name="bccompra" id="bccompra">
+                                                      <option value="">...</option>
+                                                      <option value="1">BANRISUL</option>
+                                                      <option value="2">BRADESCO</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6 col-sm-6">
+                                                <label for="fullname">Parcela Inicial * :</label>
+                                                <input type="text" id="parceini" class="form-control" name="parceini" required="">
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="email">Parcela Final * :</label>
+                                                <input type="text" id="parcefinal" class="form-control" name="parcefinal" data-parsley-trigger="change" required="">
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="fullname">ML * :</label>
+                                                <input type="text" id="ml" class="form-control" name="ml" required="">
+                                            </div>
+                                        </div>
+                                        
+                                       <div class="row mb-3">                                            
+                                                <div class="col-md-12 col-sm-12 offset-md-0">
+                                                      <label for="comment">Histórico:</label>
+                                                      <textarea class="form-control" name="historico" rows="2" id="historico"></textarea>
+                                                </div>                                           
+                                        </div>
+                                        
+                                        <div class="row mb-3">
+                                            <div class="item form-group">
+                                                <div class="col-md-12 col-sm-12 offset-md-0">
+                                                    <a href="main.php" class="btn btn-success" type="button" data-dismiss="modal">Cancel</a>
+                                                    <button type="button" name="btn-submit-update-proposta" id="btn-update-proposta" class="btn btn-secondary" data-id_contrato="">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>										
+                                </form>
+				  </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                <!--<button type="button" class="btn btn-primary">Understood</button>-->
               </div>
             </div>
           </div>
