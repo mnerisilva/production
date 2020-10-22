@@ -57,6 +57,7 @@
     <script src="js/ajax/monta_lista_anexo_fetch.js"></script>
     <script src="js/ajax/apaga_anexo_da_lista_delete.js"></script>
     <script src="js/ajax/upload_arquivo_escolhido_upload.js"></script>
+    <script src="js/ajax/add_proposta.js"></script>
     <script src="js/ajax/update_proposta.js"></script>
 	
   </body>
@@ -229,6 +230,20 @@ function toBRL(n){
          
           
                 var action = '';
+          
+           
+           // populando select cliente no formulário add_proposta.php
+                action = 'add_proposta_cli'; 
+                $.ajax({  
+                     url:"popula_selects.php",  
+                     type:"POST",  
+                     cache:false,  
+                     data:{action: action},  
+                     success:function(data){
+                         //console.log('data ajax select clientes: '+data);
+                         $('#add_id_cli').html(data);
+                     }  
+                })          
            
            // populando select cliente no formulário adicionar_proposta.php
                 action = 'proposta_cli'; 
