@@ -97,7 +97,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-bug"></i> Tabelas Auxiliares <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Cliente</a></li>
+                      <li><a href="#" id="btn-cliente" data-toggle="modal" data-target="#addCliente">Cliente</a></li>
                       <li><a href="#">Operadora</a></li>
                       <li><a href="#">Vendedor</a></li>
                       <li><a href="#">Situação</a></li>

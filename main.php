@@ -44,7 +44,7 @@
 
 <div class="x_panel painel-lista-propostas">
 								<div class="x_title">
-									<h2>Propostas<small>Lista suspensa</small> <a href="" data-toggle="modal" data-target="#addProposta"><i class="fa fa-plus-circle fa-2x"></i></a></h2>
+									<h2>Propostas<small>Lista suspensa</small> <a href="" data-toggle="modal" data-target="#addProposta" id="btn-addProposta"><i class="fa fa-plus-circle fa-2x"></i></a></h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -1201,135 +1201,223 @@
               </div>
               <div class="modal-body">
                   <div class="form-nova-proposta">
-                        <form id="form_add_proposta" method="POST">
+                    <form id="form_add_proposta" method="POST">
+                                    <div class="row">
+                                        <input type="hidden" name="add_matribn" id="add_matribn" value="">
+                                        <input type="hidden" name="add_historico" id="add_historico" value="">
+                                        <div class="col-md-4 col-sm-4">
+                                            <label for="add_id_cli">Cliente * :</label>
+                                              <select class="form-control" name="add_id_cli" id="add_id_cli">
+                                                  <option value="">...</option>
+                                              </select>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4">
+                                            <label for="add_orgao">Órgão * :</label>
+                                              <select class="form-control" name="add_orgao" id="add_orgao">
+                                                  <option value="">...</option>
+                                                  <option value="1">INSS</option>
+                                                  <option value="2">SIAPE</option>
+                                                  <option value="3">GOV SC</option>
+                                              </select>
+                                        </div>
+                                        <div class="col-md-2 col-sm-2">
+                                            <label for="add_bn">No. Benefício (bn) * :</label>
+                                              <select class="form-control" name="add_bn" id="add_bn">
+                                                  <option value="">...</option>
+                                                  <option value="1">21</option>
+                                                  <option value="2">32</option>
+                                                  <option value="3">41</option>
+                                                  <option value="4">42</option>
+                                                  <option value="5">46</option>
+                                                  <option value="6">92</option>
+                                                  <option value="7">93</option>
+                                              </select>
+                                        </div>
+                                        <div class="col-md-2 col-sm-2">
+                                            <label for="add_parce">Parcela * :</label>
+                                            <input type="text" id="add_parce" class="form-control" name="add_parce" data-parsley-trigger="change" required="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-3 col-sm-3">
+                                            <label for="add_opera">Operação * :</label>
+                                              <select class="form-control" name="add_opera" id="add_opera">
+                                                  <option value="">...</option>
+                                                  <option value="1">Portabilidade</option>
+                                                  <option value="2">Porta + Refi</option>
+                                                  <option value="3">Contrato novo</option>
+                                                  <option value="4">Refinanciamento</option>
+                                              </select>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <label for="add_promo">promotora * :</label>
+                                              <select class="form-control" name="add_promo" id="add_promo">
+                                                  <option value="">...</option>
+                                                  <option value="1">LEWE</option>
+                                                  <option value="2">FONTES</option>
+                                                  <option value="3">GFT</option>
+                                              </select>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <label for="add_vend">Vendedor * :</label>
+                                              <select class="form-control" name="add_vend" id="add_vend">
+                                                  <option value="">...</option>
+                                                  <option value="1">Manoel</option>
+                                                  <option value="2">Thauan</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6 col-sm-6">
+                                            <label for="add_situa">Situação * :</label>
+                                              <select class="form-control" name="add_situa" id="add_situa">
+                                                  <option value="">...</option>
+                                                  <option value="1">AGUARDANDO - digitação</option>
+                                                  <option value="2">AGUARDANDO - sldo devedor</option>
+                                                  <option value="3">AGUARDANDO - averbação</option>
+                                                  <option value="4">AVERBADO</option>
+                                                  <option value="5">AGUARDANDO - refinanciamento de portabilidade</option>
+                                                  <option value="6">PAGO</option>
+                                                  <option value="7">PENDENTE - anexar contrato</option>
+                                                  <option value="8">PENDENTE - documento pendente</option>
+                                                  <option value="9">CANCELADO - cliente retido</option>
+                                                  <option value="10">CANCELADO - no. do contrato não cancelado</option>
+                                                  <option value="11">CANCELADO - contrato com portabilidade</option>
+                                                  <option value="12">CANCELADO - cliente solicitou o cancelamento</option>
+                                                  <option value="13">CANCELADO - margem consignada excedida</option>
+                                                  <option value="14">CANCELADO - cliente com restrição interna</option>
+                                                  <option value="15">CANCELADO - cliente com margem negativa interna</option>
+                                                  <option value="16">CANCELADO - CPF irregular na Receita Federal</option>
+                                              </select>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <label for="add_ade">ade * :</label>
+                                            <input type="text" id="add_ade" class="form-control" name="add_ade" data-parsley-trigger="change">
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <label for="add_bccompra">Banco Comprador * :</label>
+                                              <select class="form-control" name="add_bccompra" id="add_bccompra">
+                                                  <option value="">...</option>
+                                                  <option value="1">BANRISUL</option>
+                                                  <option value="2">BRADESCO</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6 col-sm-6">
+                                            <label for="add_parceini">Parcela Inicial * :</label>
+                                            <input type="text" id="add_parceini" class="form-control" name="add_parceini" required="">
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <label for="add_parcefinal">Parcela Final * :</label>
+                                            <input type="text" id="add_parcefinal" class="form-control" name="add_parcefinal" data-parsley-trigger="change" required="">
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <label for="add_ml">ML * :</label>
+                                            <input type="text" id="add_ml" class="form-control" name="add_ml" required="">
+                                        </div>
+                                    </div>
+
+                                   <div class="row mb-3">                                            
+                                            <div class="col-md-12 col-sm-12 offset-md-0">
+                                                  <label for="add_historico">Histórico:</label>
+                                                  <textarea class="form-control" name="add_historico" rows="2" id="add_historico"></textarea>
+                                            </div>                                           
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="item form-group">
+                                            <div class="col-md-12 col-sm-12 offset-md-0">
+                                                <a href="" class="btn btn-success" type="button" data-dismiss="modal">Cancel</a>
+                                                <button type="button" name="btn-submit-update-proposta" id="btn-add-proposta" class="btn btn-secondary" data-dismiss='modal' data-id_contrato="">Salvar</button>
+                                            </div>
+                                        </div>
+                                    </div>										
+                        </form>
+				  </div>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="modal fade" id="addCliente" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Cadastra de Clientes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <div class="form-nova-proposta">
+                        <form id="form_add_cliente" method="POST">
                                         <div class="row">
-                                            <input type="hidden" name="add_matribn" id="add_matribn" value="">
-                                            <input type="hidden" name="add_historico" id="add_historico" value="">
-                                            <div class="col-md-4 col-sm-4">
-                                                <label for="add_id_cli">Cliente * :</label>
-                                                  <select class="form-control" name="add_id_cli" id="add_id_cli">
-                                                      <option value="">...</option>
-                                                  </select>
+                                            <div class="col-md-7 col-sm-7">
+                                                <label for="add_cli_nome">Nome * :</label>
+                                                <input type="text" id="add_cli_nome" class="form-control" name="add_cli_nome" data-parsley-trigger="change" required="">
                                             </div>
-                                            <div class="col-md-4 col-sm-4">
-                                                <label for="add_orgao">Órgão * :</label>
-                                                  <select class="form-control" name="add_orgao" id="add_orgao">
-                                                      <option value="">...</option>
-                                                      <option value="1">INSS</option>
-                                                      <option value="2">SIAPE</option>
-                                                      <option value="3">GOV SC</option>
-                                                  </select>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="add_cli_cpf">Cpf * :</label>
+                                                <input type="text" id="add_cli_cpf" class="form-control" name="add_cli_cpf" data-parsley-trigger="change" required="">
                                             </div>
                                             <div class="col-md-2 col-sm-2">
-                                                <label for="add_bn">No. Benefício (bn) * :</label>
-                                                  <select class="form-control" name="add_bn" id="add_bn">
-                                                      <option value="">...</option>
-                                                      <option value="1">21</option>
-                                                      <option value="2">32</option>
-                                                      <option value="3">41</option>
-                                                      <option value="4">42</option>
-                                                      <option value="5">46</option>
-                                                      <option value="6">92</option>
-                                                      <option value="7">93</option>
-                                                  </select>
+                                                <label for="add_cli_identidade">Identidade * :</label>
+                                                <input type="text" id="add_cli_identidade" class="form-control" name="add_cli_identidade" data-parsley-trigger="change" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-2 col-sm-2">
+                                                <label for="add_cli_cep">Cep * :</label>
+                                                <input type="text" id="add_cli_cep" class="form-control" name="add_cli_cep" data-parsley-trigger="change" required="">
+                                            </div>
+                                            <div class="col-md-8 col-sm-8">
+                                                <label for="add_cli_endereco">Endereço * :</label>
+                                                <input type="text" id="add_cli_endereco" class="form-control" name="add_cli_endereco" data-parsley-trigger="change" required="">
                                             </div>
                                             <div class="col-md-2 col-sm-2">
-                                                <label for="add_parce">Parcela * :</label>
-                                                <input type="text" id="add_parce" class="form-control" name="add_parce" data-parsley-trigger="change" required="">
+                                                <label for="add_cli_numero">Número * :</label>
+                                                <input type="text" id="add_cli_numero" class="form-control" name="add_cli_numero" data-parsley-trigger="change" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-2">
+                                                <label for="add_cli_comple">Complemento * :</label>
+                                                <input type="text" id="add_cli_comple" class="form-control" name="add_cli_comple" data-parsley-trigger="change" required="">
+                                            </div>
+                                            <div class="col-md-4 col-sm-4">
+                                                <label for="add_cli_bairro">Bairro * :</label>
+                                                <input type="text" id="add_cli_bairro" class="form-control" name="add_cli_bairro" data-parsley-trigger="change" required="">
+                                            </div>
+                                            <div class="col-md-4 col-sm-4">
+                                                <label for="add_cli_cidade">Cidade * :</label>
+                                                <input type="text" id="add_cli_cidade" class="form-control" name="add_cli_cidade" data-parsley-trigger="change" required="">
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <label for="add_cli_uf">Uf * :</label>
+                                                <input type="text" id="add_cli_uf" class="form-control" name="add_cli_uf" data-parsley-trigger="change" required="">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="add_opera">Operação * :</label>
-                                                  <select class="form-control" name="add_opera" id="add_opera">
-                                                      <option value="">...</option>
-                                                      <option value="1">Portabilidade</option>
-                                                      <option value="2">Porta + Refi</option>
-                                                      <option value="3">Contrato novo</option>
-                                                      <option value="4">Refinanciamento</option>
-                                                  </select>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="add_promo">promotora * :</label>
-                                                  <select class="form-control" name="add_promo" id="add_promo">
-                                                      <option value="">...</option>
-                                                      <option value="1">LEWE</option>
-                                                      <option value="2">FONTES</option>
-                                                      <option value="3">GFT</option>
-                                                  </select>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6">
-                                                <label for="add_vend">Vendedor * :</label>
-                                                  <select class="form-control" name="add_vend" id="add_vend">
-                                                      <option value="">...</option>
-                                                      <option value="1">Manoel</option>
-                                                      <option value="2">Thauan</option>
-                                                  </select>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-6 col-sm-6">
-                                                <label for="add_situa">Situação * :</label>
-                                                  <select class="form-control" name="add_situa" id="add_situa">
-                                                      <option value="">...</option>
-                                                      <option value="1">AGUARDANDO - digitação</option>
-                                                      <option value="2">AGUARDANDO - sldo devedor</option>
-                                                      <option value="3">AGUARDANDO - averbação</option>
-                                                      <option value="4">AVERBADO</option>
-                                                      <option value="5">AGUARDANDO - refinanciamento de portabilidade</option>
-                                                      <option value="6">PAGO</option>
-                                                      <option value="7">PENDENTE - anexar contrato</option>
-                                                      <option value="8">PENDENTE - documento pendente</option>
-                                                      <option value="9">CANCELADO - cliente retido</option>
-                                                      <option value="10">CANCELADO - no. do contrato não cancelado</option>
-                                                      <option value="11">CANCELADO - contrato com portabilidade</option>
-                                                      <option value="12">CANCELADO - cliente solicitou o cancelamento</option>
-                                                      <option value="13">CANCELADO - margem consignada excedida</option>
-                                                      <option value="14">CANCELADO - cliente com restrição interna</option>
-                                                      <option value="15">CANCELADO - cliente com margem negativa interna</option>
-                                                      <option value="16">CANCELADO - CPF irregular na Receita Federal</option>
-                                                  </select>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="add_ade">ade * :</label>
-                                                <input type="text" id="add_ade" class="form-control" name="add_ade" data-parsley-trigger="change">
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="add_bccompra">Banco Comprador * :</label>
-                                                  <select class="form-control" name="add_bccompra" id="add_bccompra">
-                                                      <option value="">...</option>
-                                                      <option value="1">BANRISUL</option>
-                                                      <option value="2">BRADESCO</option>
-                                                  </select>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-6 col-sm-6">
-                                                <label for="add_parceini">Parcela Inicial * :</label>
-                                                <input type="text" id="add_parceini" class="form-control" name="add_parceini" required="">
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="add_parcefinal">Parcela Final * :</label>
-                                                <input type="text" id="add_parcefinal" class="form-control" name="add_parcefinal" data-parsley-trigger="change" required="">
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="add_ml">ML * :</label>
-                                                <input type="text" id="add_ml" class="form-control" name="add_ml" required="">
+                                            <div class="col-md-12 col-sm-12">
+                                                <div>
+                                                    <label for="add_cli_dtnasc">Data Nascimento * :</label>
+                                                    <input type="text" id="add_cli_dtnasc" class="form-control" name="add_cli_dtnasc" required="" style="width: 16%;">
+                                                </div>
                                             </div>
                                         </div>
                                         
-                                       <div class="row mb-3">                                            
-                                                <div class="col-md-12 col-sm-12 offset-md-0">
-                                                      <label for="add_historico">Histórico:</label>
-                                                      <textarea class="form-control" name="add_historico" rows="2" id="add_historico"></textarea>
-                                                </div>                                           
-                                        </div>
+                                      
                                         
                                         <div class="row mb-3">
                                             <div class="item form-group">
                                                 <div class="col-md-12 col-sm-12 offset-md-0">
                                                     <a href="" class="btn btn-success" type="button" data-dismiss="modal">Cancel</a>
-                                                    <button type="button" name="btn-submit-update-proposta" id="btn-add-proposta" class="btn btn-secondary" data-dismiss='modal' data-id_contrato="">Salvar</button>
+                                                    <button type="button" name="btn-submit-add-cliente" id="btn-add-cliente" class="btn btn-secondary" data-dismiss='modal' data-id_contrato="">Salvar</button>
                                                 </div>
                                             </div>
                                         </div>										
@@ -1337,8 +1425,6 @@
 				  </div>
               </div>
               <div class="modal-footer">
-                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-                <!--<button type="button" class="btn btn-primary">Understood</button>-->
               </div>
             </div>
           </div>

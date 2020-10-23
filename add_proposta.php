@@ -19,11 +19,16 @@
       $parceini_contrato = $_POST['add_parceini'];  
       $parcefinal_contrato = $_POST['add_parcefinal'];  
       $ml_contrato = $_POST['add_ml'];  
-      $historico = $_POST['add_historico'];  
+      $historico = $_POST['add_historico']; 
+
+      $format_parce         = formataValorMonetarioParaOBanco($parce_contrato);
+      $format_parceini      = formataValorMonetarioParaOBanco($parceini_contrato);
+      $format_parcefinal    = formataValorMonetarioParaOBanco($parcefinal_contrato);
+      $format_ml            = formataValorMonetarioParaOBanco($ml_contrato);
 
 
     $sql = "INSERT INTO tab_propostas (id_contrato, id_cli, ade_contrato, id_orgao, bn_contrato, matribn_contrato, parce_contrato, opera_contrato, promo_contrato, vend_contrato, situa_contrato, id_bccompra_contrato, parceini_contrato, parcefinal_contrato, ml_contrato, observa_tab_contrato)
-    VALUES ('', '{$id_cli}', '{$ade_contrato}', '{$id_orgao}', '{$bn_contrato}', '{$matribn_contrato}', '{$parce_contrato}', '{$opera_contrato}', '{$promo_contrato}', '{$vend_contrato}', '{$situa_contrato}', '{$id_bccompra_contrato}', '{$parceini_contrato}', '{$parcefinal_contrato}', '{$ml_contrato}', '{$historico}')";
+    VALUES ('', '{$id_cli}', '{$ade_contrato}', '{$id_orgao}', '{$bn_contrato}', '{$matribn_contrato}', '{$format_parce}', '{$opera_contrato}', '{$promo_contrato}', '{$vend_contrato}', '{$situa_contrato}', '{$id_bccompra_contrato}', '{$format_parceini}', '{$format_parcefinal}', '{$format_ml}', '{$historico}')";
 
     
 
@@ -42,4 +47,39 @@
     }
 
     mysqli_close($connect);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function formataValorMonetarioParaOBanco($valor){
+    // Valor recebido do formulário, campo valor solicitado (exemplo: 2.000,00)
+    // Removo da variável o "."
+    $valor = str_replace('.', '', $valor);
+    // Substituo a "," pelo "." pois é esse formato que o campo do seu banco de dados vai aceitar
+    $valor = str_replace(',', '.', $valor);    
+    return $valor;
+}
+
+
+
  ?>

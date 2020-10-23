@@ -30,6 +30,9 @@
                         //linha.css('opacity','1');
                     }
                   });  
+                        $('#form_add_proposta').each (function(){
+                          this.reset();
+                        });                  
     }
     
     

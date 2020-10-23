@@ -57,6 +57,11 @@
     padding-right: 25px !important;    
 }
 
+.td-situa i {
+    border-radius: 0 0 0 8px;
+    border-bottom: 1px solid #4a4040;
+}
+
 .icone-clip-anexo {
     border-right: solid thin #e6e5e5;
 }

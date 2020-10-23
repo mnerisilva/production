@@ -64,7 +64,16 @@
 </html>
 <script type="text/javascript"> 
 (function(){
-    
+
+      $('#cpf').mask('000.000.000-00', {reverse: true});
+      $('#cep').mask('00000-000');
+      $('#datanasc').mask('00/00/0000');
+      $('#datacad').mask('00/00/0000');
+      $('#parce').mask('#.##0,00', {reverse: true});
+      $('#add_parce').mask('#.##0,00', {reverse: true});
+      $('#add_parceini').mask('#.##0,00', {reverse: true});
+      $('#add_parcefinal').mask('#.##0,00', {reverse: true});
+      $('#add_ml').mask('#.##0,00', {reverse: true}); 
     
 
 function toBRL(n){
@@ -81,6 +90,22 @@ function toBRL(n){
           $('.painel-cadastro-proposta').addClass('esconde-elemento');
       },1000);
       
+
+      $(document).on('click','#btn-addProposta', function(){
+            $('#form_add_proposta').each (function(){
+              this.reset();
+            }); 
+      });
+    
+      $(document).on('click','#addProposta .close', function(){
+            $('#form_add_proposta').each (function(){
+              this.reset();
+            }); 
+      });    
+    
+      $(document).on('click','#btn-cliente', function(){
+          console.log('clicou no botão #btn-cliente');
+      });
     
       $(document).on('click','.btn-editar-proposta', function(){
           setTimeout(function(){
