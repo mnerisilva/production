@@ -60,6 +60,7 @@
 .td-situa i {
     border-radius: 0 0 0 8px;
     border-bottom: 1px solid #4a4040;
+    box-shadow: 1px 1px 1px 1px #2e2d2d6e;
 }
 
 .icone-clip-anexo {
@@ -145,6 +146,11 @@
 
 .lista-propostas .anexo {
     margin-right: 4px;
+}
+
+.painel-lista-clientes .table td, .table th {
+    padding: .4rem !important;
+    vertical-align: baseline !important;    
 }
 
 .td-cpf {

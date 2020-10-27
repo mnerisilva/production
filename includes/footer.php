@@ -66,6 +66,7 @@
 (function(){
 
       $('#cpf').mask('000.000.000-00', {reverse: true});
+      $('#add_cli_cpf').mask('000.000.000-00', {reverse: true});
       $('#cep').mask('00000-000');
       $('#datanasc').mask('00/00/0000');
       $('#datacad').mask('00/00/0000');
@@ -84,6 +85,17 @@ function toBRL(n){
     return formatter.format(n);
 }
     
+
+          //$('input[type=checkbox][name="ativar_linha"]').change(function() {
+          $(document).on('click', '.cheque', function() {
+              console.log('entrou aqui');
+            if ($(this).is(':checked')) {
+              console.log(`${this.value} is checked`);
+            }
+            else {
+              console.log(`${this.value} is unchecked`);
+            }
+          });    
     
     
       setTimeout(function(){
@@ -101,11 +113,21 @@ function toBRL(n){
             $('#form_add_proposta').each (function(){
               this.reset();
             }); 
+      });  
+    
+      $(document).on('click','#item-menu-proposta', function(){
+          if($('.painel-lista-propostas').hasClass('esconde-proposta')){
+                $('.painel-lista-propostas').removeClass('esconde-proposta');
+                $('.painel-lista-clientes').addClass('esconde-elemento');                
+             }
       });    
     
-      $(document).on('click','#btn-cliente', function(){
-          console.log('clicou no botão #btn-cliente');
+      $(document).on('click','#item-menu-cliente', function(){
+          $('.painel-lista-propostas').toggleClass('esconde-elemento');
+          $('.painel-lista-clientes').toggleClass('esconde-elemento');
       });
+    
+    
     
       $(document).on('click','.btn-editar-proposta', function(){
           setTimeout(function(){
@@ -121,7 +143,7 @@ function toBRL(n){
           //$('.lista-propostas thead').css('opacity', 0);
           var tr_selected = $(this).closest('tr');
           tr_selected.css('transition','all .8s');
-          tr_selected.addClass('selected');
+          //tr_selected.addClass('selected');
           var id = tr_selected.attr('id');
           //var todas_as_linhas_do_tbody = $('.lista-propostas tbody');
           /*$('.lista-propostas tbody tr').each(function(index){

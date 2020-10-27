@@ -114,8 +114,8 @@
                                                     ?>
 
                                                         <?php echo '<tr class="even pointer" id="td_'. $dados['id_contrato'] . '">'; ?>
-                                                                    <td class="a-center ">
-                                                                      <input type="checkbox" class="flat" name="table_records">
+                                                                    <td class="a-center cheque ">
+                                                                      <input type="checkbox" class="flat" name="ativar_linha">
                                                                     </td>
                                                         <?php echo '<td class="color-'. $dados['situa_contrato'] . ' cod-cliente" style="padding-right: 40px !important">'; ?>
                                                         <?php echo $dados['id_contrato'].'</td>'; ?>
@@ -405,6 +405,121 @@
 
 
 
+<div class="x_panel painel-lista-clientes esconde-elemento">
+								<div class="x_title">
+									<h2>Clientes<small>Lista</small> <a href="" data-toggle="modal" data-target="#addCliente" id="btn-addCliente"><i class="fa fa-plus-circle fa-2x"></i></a></h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+												<a class="dropdown-item" href="#">Settings 1</a>
+												<a class="dropdown-item" href="#">Settings 2</a>
+											</div>
+										</li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content" style="display: block;">
+
+									<!-- start form for validation -->           
+                                      <!-- tabela -->
+                                      <div class="table-responsive">
+                                      <table class="table table-striped jambo_table lista-clientes table-condensed">
+                                        <thead>
+                                          <tr class="headings">
+                                            <th>
+                                              <input type="checkbox" id="check-all" class="flat">
+                                            </th>
+                                            <th class="column-title">Cod </th>
+                                            <th class="column-title">Nome </th>
+                                            <th class="column-title">Cpf </th>
+                                            <th class="column-title">Identidade </th>
+                                            <th class="column-title">Cep </th>
+                                            <th class="column-title">Endereco </th>
+                                            <th class="column-title">Número </th>
+                                            <th class="column-title">Complemento</th>
+                                            <th class="column-title">bairro </th>
+                                            <th class="column-title">Cidade </th>
+                                            <th class="column-title">Uf </th>
+                                            <th class="column-title">Data Nasc. </th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title no-link last"><span class="nobr">&nbsp;</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i>5</a>
+                                            </th>
+                                          </tr>
+                                        </thead>
+
+                                        <tbody>
+
+
+
+
+
+                                                    <?php
+                                                    $sql_clientes = "SELECT * FROM tab_clientes";
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";*/
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+
+                                                    $resultado_clientes = mysqli_query($connect, $sql_clientes);
+
+
+
+                                                    if(mysqli_num_rows($resultado_clientes) > 0):
+
+                                                    while($dados_cliente = mysqli_fetch_array($resultado_clientes)):
+                                                    ?>
+
+                                                        <?php echo '<tr class="even pointer" id="td_'. $dados_cliente['id_cli'] . '">'; ?>
+                                                                    <td class="a-center cheque ">
+                                                                      <input type="checkbox" class="flat" name="ativar_linha">
+                                                                    </td>
+                                                        <?php echo '<td class="" style="padding-right: 40px !important">'; ?>
+                                                        <?php echo $dados_cliente['id_cli'].'</td>'; ?>
+                                                        <td class="td-nome_cli"><?php echo $dados_cliente['nome_cli']; ?></td>
+                                                        <td class="td-cpf_cli"><?php echo $dados_cliente['cpf_cli']; ?></td>
+                                                        <td class="td-identidade_cli"><?php echo $dados_cliente['identidade_cli']; ?></td>
+                                                        <td class="td-cep_cli"><?php echo $dados_cliente['cep_cli']; ?></td>
+                                                        <td class="td-endereco_cli"><?php echo $dados_cliente['endereco_cli']; ?></td>
+                                                        <td class="td-numero_cli"><?php echo $dados_cliente['numero_cli']; ?></td>
+                                                        <td class="ted-comple_cli"><?php echo $dados_cliente['comple_cli']; ?></td>
+                                                        <td class="td-bairro_cli"><?php echo $dados_cliente['bairro_cli']; ?></td>
+                                                        <td class="td-cidade_cli"><?php echo $dados_cliente['cidade_cli']; ?></td>
+                                                        <td class="td-uf_cli"><?php echo $dados_cliente['uf_cli']; ?></td>
+                                                        <td class="td-data_nasc"><?php echo $dados_cliente['datanasc_cli']; ?></td>
+                                                        <?php echo '<td class="a-right a-right btn-editar-proposta" data-id_proposta="'.$dados_cliente['id_cli'].'" data-nome_cli="'.$dados_cliente['nome_cli'].'" ><i class="fa fa-edit"></i></td>'; ?>
+                                                <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
+                                                <!--<td class=" last"><a href="#">View</a>-->
+                                                <td class=" last"><a href="#"><i class="fa fa-eye"></i></a></td>        
+                                                                    </tr>
+                                                   <?php 
+                                                    endwhile;
+                                                    else: ?>
+
+                                                    <tr>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+
+                                                   <?php 
+                                                    endif;
+                                                   ?>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                     <!-- tabela -->
+									<!-- end form for validations -->
+
+								</div>
+							</div>
 
 
 

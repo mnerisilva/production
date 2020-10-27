@@ -29,7 +29,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Operação <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a class="item-menu-proposta-cadastro" href="#">Proposta</a></li>
+                      <li><a class="item-menu-proposta-cadastro" id="item-menu-proposta" href="#">Proposta</a></li>
                     </ul>
                   </li>
                   <li style="display: none;"><a><i class="fas fa-home"></i> Tabelas Auxiliares <span class="fa fa-chevron-down"></span></a>
@@ -97,7 +97,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-bug"></i> Tabelas Auxiliares <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#" id="btn-cliente" data-toggle="modal" data-target="#addCliente">Cliente</a></li>
+                      <li><a href="#" id="item-menu-cliente">Cliente</a></li>
                       <li><a href="#">Operadora</a></li>
                       <li><a href="#">Vendedor</a></li>
                       <li><a href="#">Situação</a></li>
