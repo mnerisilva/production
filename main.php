@@ -1520,8 +1520,8 @@
                                         <div class="row mb-3">
                                             <div class="col-md-12 col-sm-12">
                                                 <div>
-                                                    <label for="add_cli_dtnasc">Data Nascimento * :</label>
-                                                    <input type="text" id="add_cli_dtnasc" class="form-control" name="add_cli_dtnasc" required="" style="width: 16%;">
+                                                    <label for="add_cli_datanasc">Data Nascimento * :</label>
+                                                    <input type="text" id="add_cli_datanasc" class="form-control" name="add_cli_datanasc" required="" style="width: 16%;">
                                                 </div>
                                             </div>
                                         </div>

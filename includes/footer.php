@@ -59,6 +59,7 @@
     <script src="js/ajax/upload_arquivo_escolhido_upload.js"></script>
     <script src="js/ajax/add_proposta.js"></script>
     <script src="js/ajax/update_proposta.js"></script>
+    <script src="add_cliente/add_cliente.js"></script>
 	
   </body>
 </html>
