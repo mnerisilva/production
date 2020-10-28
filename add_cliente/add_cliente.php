@@ -33,7 +33,7 @@
 
     if (mysqli_query($connect, $sql_cli)) {
         $ultimo_id_cli = (string) $connect->insert_id;
-        $json_dados_cli = array ('id_cli'=>$ultimo_id, 'add_nome_cli'=>$add_nome_cli, 'add_cpf_cli'=>$add_cpf_cli, 'add_identidade_cli'=>$add_identidade_cli, 'add_cep_cli'=>$add_cep_cli, 'add_endereco_cli'=>$add_endereco_cli , 'add_numero_cli'=>$add_numero_cli, 'add_comple_cli'=>$add_comple_cli, 'add_bairro_cli'=>$add_bairro_cli, 'add_cidade_cli'=>$add_cidade_cli, 'add_uf_cli'=>$add_uf_cli, 'add_datanasc_cli'=>$add_datanasc_cli);
+        $json_dados_cli = array ('id_cli'=>$ultimo_id_cli, 'add_nome_cli'=>$add_nome_cli, 'add_cpf_cli'=>$add_cpf_cli, 'add_identidade_cli'=>$add_identidade_cli, 'add_cep_cli'=>$add_cep_cli, 'add_endereco_cli'=>$add_endereco_cli , 'add_numero_cli'=>$add_numero_cli, 'add_comple_cli'=>$add_comple_cli, 'add_bairro_cli'=>$add_bairro_cli, 'add_cidade_cli'=>$add_cidade_cli, 'add_uf_cli'=>$add_uf_cli, 'add_datanasc_cli'=>$add_datanasc_cli);
          echo json_encode($json_dados_cli);
     } else {
       echo "Error: " . $sql_cli . "<br>" . mysqli_error($connect);

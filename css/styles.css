@@ -1,9 +1,18 @@
+.x_title .navbar-right {
+    display: none !important;
+}
+
+
 .icone-clip-anexo:hover {
     color: darkorange;
     cursor: pointer;
 }
 
 .btn-editar-proposta:hover {
+    color: darkorange;
+    cursor: pointer;
+} 
+.btn-editar-cliente:hover {
     color: darkorange;
     cursor: pointer;
 }
@@ -86,10 +95,9 @@
 }
 
 
-
-
-
-
+.td-id_cli, .td-cep_cli, .td-identidade_cli, .td-numero_cli, .td-datanasc_cli {
+    text-align: right;
+}
 
 
 

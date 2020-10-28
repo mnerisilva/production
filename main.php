@@ -476,11 +476,11 @@
                                                     while($dados_cliente = mysqli_fetch_array($resultado_clientes)):
                                                     ?>
 
-                                                        <?php echo '<tr class="even pointer" id="td_'. $dados_cliente['id_cli'] . '">'; ?>
+                                                        <?php echo '<tr class="even pointer" id="td_cli_'. $dados_cliente['id_cli'] . '">'; ?>
                                                                     <td class="a-center cheque ">
                                                                       <input type="checkbox" class="flat" name="ativar_linha">
                                                                     </td>
-                                                        <?php echo '<td class="" style="padding-right: 40px !important">'; ?>
+                                                        <?php echo '<td class="td-id_cli" style="padding-right: 40px !important">'; ?>
                                                         <?php echo $dados_cliente['id_cli'].'</td>'; ?>
                                                         <td class="td-nome_cli"><?php echo $dados_cliente['nome_cli']; ?></td>
                                                         <td class="td-cpf_cli"><?php echo $dados_cliente['cpf_cli']; ?></td>
@@ -492,8 +492,8 @@
                                                         <td class="td-bairro_cli"><?php echo $dados_cliente['bairro_cli']; ?></td>
                                                         <td class="td-cidade_cli"><?php echo $dados_cliente['cidade_cli']; ?></td>
                                                         <td class="td-uf_cli"><?php echo $dados_cliente['uf_cli']; ?></td>
-                                                        <td class="td-data_nasc"><?php echo $dados_cliente['datanasc_cli']; ?></td>
-                                                        <?php echo '<td class="a-right a-right btn-editar-proposta" data-id_proposta="'.$dados_cliente['id_cli'].'" data-nome_cli="'.$dados_cliente['nome_cli'].'" ><i class="fa fa-edit"></i></td>'; ?>
+                                                        <td class="td-datanasc_cli"><?php echo $dados_cliente['datanasc_cli']; ?></td>
+                                                        <?php echo '<td class="a-right a-right btn-editar-cliente" data-id_cliente="'.$dados_cliente['id_cli'].'" data-nome_cli="'.$dados_cliente['nome_cli'].'" ><i class="fa fa-edit"></i></td>'; ?>
                                                 <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
                                                 <!--<td class=" last"><a href="#">View</a>-->
                                                 <td class=" last"><a href="#"><i class="fa fa-eye"></i></a></td>        
@@ -536,6 +536,639 @@
 
 
 
+
+
+
+
+
+<div class="x_panel painel-lista-situacao esconde-elemento">
+								<div class="x_title">
+									<h2>Situação<small>Lista</small> <a href="" data-toggle="modal" data-target="#addCliente" id="btn-addCliente"><i class="fa fa-plus-circle fa-2x"></i></a></h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+												<a class="dropdown-item" href="#">Settings 1</a>
+												<a class="dropdown-item" href="#">Settings 2</a>
+											</div>
+										</li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content" style="display: block;">
+
+									<!-- start form for validation -->           
+                                      <!-- tabela -->
+                                      <div class="table-responsive">
+                                      <table class="table table-striped jambo_table lista-situacao table-condensed">
+                                        <thead>
+                                          <tr class="headings">
+                                            <th>
+                                              <input type="checkbox" id="check-all" class="flat">
+                                            </th>
+                                            <th class="column-title">Cod </th>
+                                            <th class="column-title">Descricao </th>
+                                            <th class="column-title">Motivo </th>
+                                            <th class="column-title">Status </th>
+                                            <th class="column-title">Cor</th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title no-link last"><span class="nobr">&nbsp;</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i>5</a>
+                                            </th>
+                                          </tr>
+                                        </thead>
+
+                                        <tbody>
+
+
+
+
+
+                                                    <?php
+                                                    $sql_situacao = "SELECT * FROM tab_situacao";
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";*/
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+
+                                                    $resultado_situacao = mysqli_query($connect, $sql_situacao);
+
+
+
+                                                    if(mysqli_num_rows($resultado_situacao) > 0):
+
+                                                    while($dados_situacao = mysqli_fetch_array($resultado_situacao)):
+                                                    ?>
+
+                                                        <?php echo '<tr class="even pointer" id="td_situa_'. $dados_situacao['id_situacao'] . '">'; ?>
+                                                                    <td class="a-center cheque ">
+                                                                      <input type="checkbox" class="flat" name="ativar_linha">
+                                                                    </td>
+                                                        <?php echo '<td class="td-id_situa" style="padding-right: 40px !important">'; ?>
+                                                        <?php echo $dados_situacao['id_situacao'].'</td>'; ?>
+                                                        <td class="td-descri"><?php echo $dados_situacao['descricao_situacao']; ?></td>
+                                                        <td class="td-motivo"><?php echo $dados_situacao['motivo_descricao_situacao']; ?></td>
+                                                        <td class="td-status"><?php echo $dados_situacao['ativada_situacao']; ?></td>
+                                                        <td class="td-cor"><?php echo $dados_situacao['cor_situacao']; ?></td>
+                                                        <?php echo '<td class="a-right a-right btn-editar-situacao" data-id_situacao="'.$dados_situacao['id_situacao'].'" data-descricao_situacao="'.$dados_situacao['descricao_situacao'].'" ><i class="fa fa-edit"></i></td>'; ?>
+                                                <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
+                                                <!--<td class=" last"><a href="#">View</a>-->
+                                                <td class=" last"><a href="#"><i class="fa fa-eye"></i></a></td>        
+                                                                    </tr>
+                                                   <?php 
+                                                    endwhile;
+                                                    else: ?>
+
+                                                    <tr>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+
+                                                   <?php 
+                                                    endif;
+                                                   ?>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                     <!-- tabela -->
+									<!-- end form for validations -->
+
+								</div>
+							</div>
+
+
+
+
+
+
+
+
+
+<div class="x_panel painel-lista-operacao esconde-elemento">
+								<div class="x_title">
+									<h2>Operação<small>Lista</small> <a href="" data-toggle="modal" data-target="#addCliente" id="btn-addCliente"><i class="fa fa-plus-circle fa-2x"></i></a></h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+												<a class="dropdown-item" href="#">Settings 1</a>
+												<a class="dropdown-item" href="#">Settings 2</a>
+											</div>
+										</li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content" style="display: block;">
+
+									<!-- start form for validation -->           
+                                      <!-- tabela -->
+                                      <div class="table-responsive">
+                                      <table class="table table-striped jambo_table lista-situacao table-condensed">
+                                        <thead>
+                                          <tr class="headings">
+                                            <th>
+                                              <input type="checkbox" id="check-all" class="flat">
+                                            </th>
+                                            <th class="column-title">Cod </th>
+                                            <th class="column-title">Nome</th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title no-link last"><span class="nobr">&nbsp;</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i>5</a>
+                                            </th>
+                                          </tr>
+                                        </thead>
+
+                                        <tbody>
+
+
+
+
+
+                                                    <?php
+                                                    $sql_operacao = "SELECT * FROM tab_operacao";
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";*/
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+
+                                                    $resultado_operacao = mysqli_query($connect, $sql_operacao);
+
+
+
+                                                    if(mysqli_num_rows($resultado_operacao) > 0):
+
+                                                    while($dados_operacao = mysqli_fetch_array($resultado_operacao)):
+                                                    ?>
+
+                                                        <?php echo '<tr class="even pointer" id="td_opera_'. $dados_operacao['id_operacao'] . '">'; ?>
+                                                                    <td class="a-center cheque ">
+                                                                      <input type="checkbox" class="flat" name="ativar_linha">
+                                                                    </td>
+                                                        <?php echo '<td class="td-id_opera" style="padding-right: 40px !important">'; ?>
+                                                        <?php echo $dados_operacao['id_operacao'].'</td>'; ?>
+                                                        <td class="td-nome_opera"><?php echo $dados_operacao['nome_operacao']; ?></td>
+                                                        <?php echo '<td class="a-right a-right btn-editar-operacao" data-id_operacao="'.$dados_operacao['id_operacao'].'" data-nome_operacao="'.$dados_operacao['nome_operacao'].'" ><i class="fa fa-edit"></i></td>'; ?>
+                                                <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
+                                                <!--<td class=" last"><a href="#">View</a>-->
+                                                <td class=" last"><a href="#"><i class="fa fa-eye"></i></a></td>        
+                                                                    </tr>
+                                                   <?php 
+                                                    endwhile;
+                                                    else: ?>
+
+                                                    <tr>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+
+                                                   <?php 
+                                                    endif;
+                                                   ?>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                     <!-- tabela -->
+									<!-- end form for validations -->
+
+								</div>
+							</div>
+
+
+
+
+
+
+
+
+
+
+<div class="x_panel painel-lista-vendedor esconde-elemento">
+								<div class="x_title">
+									<h2>Vendedor<small>Lista</small> <a href="" data-toggle="modal" data-target="#addCliente" id="btn-addCliente"><i class="fa fa-plus-circle fa-2x"></i></a></h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+												<a class="dropdown-item" href="#">Settings 1</a>
+												<a class="dropdown-item" href="#">Settings 2</a>
+											</div>
+										</li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content" style="display: block;">
+
+									<!-- start form for validation -->           
+                                      <!-- tabela -->
+                                      <div class="table-responsive">
+                                      <table class="table table-striped jambo_table lista-situacao table-condensed">
+                                        <thead>
+                                          <tr class="headings">
+                                            <th>
+                                              <input type="checkbox" id="check-all" class="flat">
+                                            </th>
+                                            <th class="column-title">Cod </th>
+                                            <th class="column-title">Nome</th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title no-link last"><span class="nobr">&nbsp;</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i>5</a>
+                                            </th>
+                                          </tr>
+                                        </thead>
+
+                                        <tbody>
+
+
+
+
+
+                                                    <?php
+                                                    $sql_vendedor = "SELECT * FROM tab_vendedor";
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";*/
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+
+                                                    $resultado_vendedor = mysqli_query($connect, $sql_vendedor);
+
+
+
+                                                    if(mysqli_num_rows($resultado_vendedor) > 0):
+
+                                                    while($dados_vendedor = mysqli_fetch_array($resultado_vendedor)):
+                                                    ?>
+
+                                                        <?php echo '<tr class="even pointer" id="td_vend_'. $dados_vendedor['id_vendedor'] . '">'; ?>
+                                                                    <td class="a-center cheque ">
+                                                                      <input type="checkbox" class="flat" name="ativar_linha">
+                                                                    </td>
+                                                        <?php echo '<td class="td-id_vend" style="padding-right: 40px !important">'; ?>
+                                                        <?php echo $dados_vendedor['id_vendedor'].'</td>'; ?>
+                                                        <td class="td-nome_vend"><?php echo $dados_vendedor['nome_vendedor']; ?></td>
+                                                        <?php echo '<td class="a-right a-right btn-editar-vendedor" data-id_vendedor="'.$dados_vendedor['id_vendedor'].'" data-nome_vendedor="'.$dados_vendedor['nome_vendedor'].'" ><i class="fa fa-edit"></i></td>'; ?>
+                                                <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
+                                                <!--<td class=" last"><a href="#">View</a>-->
+                                                <td class=" last"><a href="#"><i class="fa fa-eye"></i></a></td>        
+                                                                    </tr>
+                                                   <?php 
+                                                    endwhile;
+                                                    else: ?>
+
+                                                    <tr>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+
+                                                   <?php 
+                                                    endif;
+                                                   ?>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                     <!-- tabela -->
+									<!-- end form for validations -->
+
+								</div>
+							</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="x_panel painel-lista-promotora esconde-elemento">
+								<div class="x_title">
+									<h2>Promotora<small>Lista</small> <a href="" data-toggle="modal" data-target="#addCliente" id="btn-addCliente"><i class="fa fa-plus-circle fa-2x"></i></a></h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+												<a class="dropdown-item" href="#">Settings 1</a>
+												<a class="dropdown-item" href="#">Settings 2</a>
+											</div>
+										</li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content" style="display: block;">
+
+									<!-- start form for validation -->           
+                                      <!-- tabela -->
+                                      <div class="table-responsive">
+                                      <table class="table table-striped jambo_table lista-situacao table-condensed">
+                                        <thead>
+                                          <tr class="headings">
+                                            <th>
+                                              <input type="checkbox" id="check-all" class="flat">
+                                            </th>
+                                            <th class="column-title">Cod </th>
+                                            <th class="column-title">Nome</th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title no-link last"><span class="nobr">&nbsp;</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i>5</a>
+                                            </th>
+                                          </tr>
+                                        </thead>
+
+                                        <tbody>
+
+
+
+
+
+                                                    <?php
+                                                    $sql_promotora = "SELECT * FROM tab_promotora";
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";*/
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+
+                                                    $resultado_promotora = mysqli_query($connect, $sql_promotora);
+
+
+
+                                                    if(mysqli_num_rows($resultado_promotora) > 0):
+
+                                                    while($dados_promotora = mysqli_fetch_array($resultado_promotora)):
+                                                    ?>
+
+                                                        <?php echo '<tr class="even pointer" id="td_promo_'. $dados_promotora['id_promotora'] . '">'; ?>
+                                                                    <td class="a-center cheque ">
+                                                                      <input type="checkbox" class="flat" name="ativar_linha">
+                                                                    </td>
+                                                        <?php echo '<td class="td-id_promo" style="padding-right: 40px !important">'; ?>
+                                                        <?php echo $dados_promotora['id_promotora'].'</td>'; ?>
+                                                        <td class="td-nome_vend"><?php echo $dados_promotora['nome_promotora']; ?></td>
+                                                        <?php echo '<td class="a-right a-right btn-editar-promotora" data-id_promotora="'.$dados_promotora['id_promotora'].'" data-nome_promotora="'.$dados_promotora['nome_promotora'].'" ><i class="fa fa-edit"></i></td>'; ?>
+                                                <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
+                                                <!--<td class=" last"><a href="#">View</a>-->
+                                                <td class=" last"><a href="#"><i class="fa fa-eye"></i></a></td>        
+                                                                    </tr>
+                                                   <?php 
+                                                    endwhile;
+                                                    else: ?>
+
+                                                    <tr>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+
+                                                   <?php 
+                                                    endif;
+                                                   ?>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                     <!-- tabela -->
+									<!-- end form for validations -->
+
+								</div>
+							</div>
+
+
+
+
+
+
+
+
+
+<div class="x_panel painel-lista-bccomprador esconde-elemento">
+								<div class="x_title">
+									<h2>Banco Comprador<small>Lista</small> <a href="" data-toggle="modal" data-target="#addCliente" id="btn-addCliente"><i class="fa fa-plus-circle fa-2x"></i></a></h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+												<a class="dropdown-item" href="#">Settings 1</a>
+												<a class="dropdown-item" href="#">Settings 2</a>
+											</div>
+										</li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content" style="display: block;">
+
+									<!-- start form for validation -->           
+                                      <!-- tabela -->
+                                      <div class="table-responsive">
+                                      <table class="table table-striped jambo_table lista-situacao table-condensed">
+                                        <thead>
+                                          <tr class="headings">
+                                            <th>
+                                              <input type="checkbox" id="check-all" class="flat">
+                                            </th>
+                                            <th class="column-title">Cod </th>
+                                            <th class="column-title">Nome</th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title no-link last"><span class="nobr">&nbsp;</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i>5</a>
+                                            </th>
+                                          </tr>
+                                        </thead>
+
+                                        <tbody>
+
+
+
+
+
+                                                    <?php
+                                                    $sql_bccomprador = "SELECT * FROM tab_bccompra";
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";*/
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+
+                                                    $resultado_bccomprador = mysqli_query($connect, $sql_bccomprador);
+
+
+
+                                                    if(mysqli_num_rows($resultado_bccomprador) > 0):
+
+                                                    while($dados_bccomprador = mysqli_fetch_array($resultado_bccomprador)):
+                                                    ?>
+
+                                                        <?php echo '<tr class="even pointer" id="td_bccompra_'. $dados_bccomprador['id_bccompra_contrato'] . '">'; ?>
+                                                                    <td class="a-center cheque ">
+                                                                      <input type="checkbox" class="flat" name="ativar_linha">
+                                                                    </td>
+                                                        <?php echo '<td class="td-id_bccompra" style="padding-right: 40px !important">'; ?>
+                                                        <?php echo $dados_bccomprador['id_bccompra_contrato'].'</td>'; ?>
+                                                        <td class="td-nome_vend"><?php echo $dados_bccomprador['nome_bccompra']; ?></td>
+                                                        <?php echo '<td class="a-right a-right btn-editar-bccomprador" data-id_bccomprador="'.$dados_promotora['id_bccompra_contrato'].'" data-nome_bccompra="'.$dados_promotora['nome_bccompra'].'" ><i class="fa fa-edit"></i></td>'; ?>
+                                                <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
+                                                <!--<td class=" last"><a href="#">View</a>-->
+                                                <td class=" last"><a href="#"><i class="fa fa-eye"></i></a></td>        
+                                                                    </tr>
+                                                   <?php 
+                                                    endwhile;
+                                                    else: ?>
+
+                                                    <tr>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+
+                                                   <?php 
+                                                    endif;
+                                                   ?>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                     <!-- tabela -->
+									<!-- end form for validations -->
+
+								</div>
+							</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="x_panel painel-lista-beneficio esconde-elemento">
+								<div class="x_title">
+									<h2>Benefício<small>Lista</small> <a href="" data-toggle="modal" data-target="#addCliente" id="btn-addCliente"><i class="fa fa-plus-circle fa-2x"></i></a></h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+												<a class="dropdown-item" href="#">Settings 1</a>
+												<a class="dropdown-item" href="#">Settings 2</a>
+											</div>
+										</li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content" style="display: block;">
+
+									<!-- start form for validation -->           
+                                      <!-- tabela -->
+                                      <div class="table-responsive">
+                                      <table class="table table-striped jambo_table lista-situacao table-condensed">
+                                        <thead>
+                                          <tr class="headings">
+                                            <th>
+                                              <input type="checkbox" id="check-all" class="flat">
+                                            </th>
+                                            <th class="column-title">Id</th>
+                                            <th class="column-title">Código do benefício</th>
+                                            <th class="column-title">Nome benefício</th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title"></th>
+                                            <th class="column-title no-link last"><span class="nobr">&nbsp;</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i>5</a>
+                                            </th>
+                                          </tr>
+                                        </thead>
+
+                                        <tbody>
+
+
+
+
+
+                                                    <?php
+                                                    $sql_bn = "SELECT * FROM tab_bn";
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";*/
+                                                    /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+
+                                                    $resultado_bn = mysqli_query($connect, $sql_bn);
+
+
+
+                                                    if(mysqli_num_rows($resultado_bn) > 0):
+
+                                                    while($dados_bn = mysqli_fetch_array($resultado_bn)):
+                                                    ?>
+
+                                                        <?php echo '<tr class="even pointer" id="td_bn_'. $dados_bn['id_bn'] . '">'; ?>
+                                                                    <td class="a-center cheque ">
+                                                                      <input type="checkbox" class="flat" name="ativar_linha">
+                                                                    </td>
+                                                        <?php echo '<td class="td-id_bn" style="padding-right: 40px !important">'; ?>
+                                                        <?php echo $dados_bn['id_bn'].'</td>'; ?>
+                                                        <td class="td-cod_bn"><?php echo $dados_bn['cod_bn']; ?></td>
+                                                        <td class="td-nome_bn"><?php echo $dados_bn['nome_bn']; ?></td>
+                                                        <?php echo '<td class="a-right a-right btn-editar-bn" data-id_bn="'.$dados_bn['id_bn'].'" data-nome_bn="'.$dados_bn['nome_bn'].'" ><i class="fa fa-edit"></i></td>'; ?>
+                                                <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
+                                                <!--<td class=" last"><a href="#">View</a>-->
+                                                <td class=" last"><a href="#"><i class="fa fa-eye"></i></a></td>        
+                                                                    </tr>
+                                                   <?php 
+                                                    endwhile;
+                                                    else: ?>
+
+                                                    <tr>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                    </tr>
+
+                                                   <?php 
+                                                    endif;
+                                                   ?>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                     <!-- tabela -->
+									<!-- end form for validations -->
+
+								</div>
+							</div>
 
 
 

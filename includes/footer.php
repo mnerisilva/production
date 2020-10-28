@@ -127,6 +127,39 @@ function toBRL(n){
           $('.painel-lista-propostas').toggleClass('esconde-elemento');
           $('.painel-lista-clientes').toggleClass('esconde-elemento');
       });
+  
+    $(document).on('click','#item-menu-operacao', function(){
+          $('.painel-lista-propostas').toggleClass('esconde-elemento');
+          $('.painel-lista-operacao').toggleClass('esconde-elemento');
+      });
+    
+   $(document).on('click','#item-menu-vendedor', function(){
+          $('.painel-lista-propostas').toggleClass('esconde-elemento');
+          $('.painel-lista-vendedor').toggleClass('esconde-elemento');
+      });     
+    
+    $(document).on('click','#item-menu-situacao', function(){
+          $('.painel-lista-propostas').toggleClass('esconde-elemento');
+          $('.painel-lista-situacao').toggleClass('esconde-elemento');
+      });    
+    
+    $(document).on('click','#item-menu-promotora', function(){
+          $('.painel-lista-propostas').toggleClass('esconde-elemento');
+          $('.painel-lista-promotora').toggleClass('esconde-elemento');
+      });    
+    
+   
+    $(document).on('click','#item-menu-bccomprador', function(){
+          $('.painel-lista-propostas').toggleClass('esconde-elemento');
+          $('.painel-lista-bccomprador').toggleClass('esconde-elemento');
+      });  
+  
+    $(document).on('click','#item-menu-beneficio', function(){
+          $('.painel-lista-propostas').toggleClass('esconde-elemento');
+          $('.painel-lista-beneficio').toggleClass('esconde-elemento');
+      });      
+    
+     
     
     
     
@@ -226,6 +259,7 @@ function toBRL(n){
               $('.painel-lista-propostas .collapse-link').click();
               //$('.painel-cadastro-proposta').show();
               $('.painel-cadastro-proposta').removeClass('esconde-elemento');
+              $('.painel-cadastro-proposta').addClass('mostra');
               console.log('clicou no cadastro de proposta do menu lateral');
           });
 

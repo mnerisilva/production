@@ -98,12 +98,12 @@
                   <li><a><i class="fa fa-bug"></i> Tabelas Auxiliares <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#" id="item-menu-cliente">Cliente</a></li>
-                      <li><a href="#">Operadora</a></li>
-                      <li><a href="#">Vendedor</a></li>
-                      <li><a href="#">Situação</a></li>
-                      <li><a href="#">Promotora</a></li>
-                      <li><a href="#">Banco Comprador</a></li>
-                      <li><a href="#">Beneficio (bn)</a></li>
+                      <li><a href="#" id="item-menu-operacao">Operação</a></li>
+                      <li><a href="#" id="item-menu-vendedor">Vendedor</a></li>
+                      <li><a href="#" id="item-menu-situacao">Situação</a></li>
+                      <li><a href="#" id="item-menu-promotora">Promotora</a></li>
+                      <li><a href="#" id="item-menu-bccomprador">Banco Comprador</a></li>
+                      <li><a href="#" id="item-menu-beneficio">Benefício (bn)</a></li>
                     </ul>
                   </li>
                   <li style="display: none;"><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
