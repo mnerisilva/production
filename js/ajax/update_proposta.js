@@ -29,8 +29,8 @@
     
     $(document).on('click', '#btn-update-proposta', function(){
         
-       $('.painel-cadastro-proposta').addClass('esconde-elemento');
-       $('.painel-lista-propostas').removeClass('esconde-elemento');
+       //$('.painel-cadastro-proposta').addClass('esconde-elemento');
+       //$('.painel-lista-propostas').removeClass('esconde-elemento');
  
         
     
@@ -53,6 +53,8 @@
                 montaLinhaVoltaUpdat(linha, id_contrato);
             }
           });
+        
+            
    })            
             
 

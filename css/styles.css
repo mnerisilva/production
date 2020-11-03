@@ -27,9 +27,18 @@
 
 
 .esconde-elemento {
-    display: none !important;
-    transition: all .5s;
-    
+    /*display: none !important;
+    transition: all .5s;*/
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;  
+    transition: height 0ms 400ms, opacity 400ms 0ms; 
+} 
+
+.mostra {
+    /*opacity: 1 !important;*/
+    height: auto; opacity: 1 !important;
+    transition: height 0ms 0ms, opacity 600ms 0ms;
 }
 
 .selected {
@@ -38,12 +47,10 @@
 }
 
 .painel-cadastro-proposta {
-    opacity: 0 !important;
+    opacity: 0;
 }
 
-.mostra {
-    opacity: 1 !important;
-}
+
 
 .title-proposta {
     margin-left: 8px !important;
@@ -99,6 +106,13 @@
     text-align: right;
 }
 
+
+.info-cliente-proposta {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    font-weight: bold;
+}
 
 
 

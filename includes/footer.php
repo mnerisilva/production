@@ -60,6 +60,7 @@
     <script src="js/ajax/add_proposta.js"></script>
     <script src="js/ajax/update_proposta.js"></script>
     <script src="add_cliente/add_cliente.js"></script>
+    <script src="edit_cliente/edit_cliente.js"></script>
 	
   </body>
 </html>
@@ -116,17 +117,41 @@ function toBRL(n){
             }); 
       });  
     
-      $(document).on('click','#item-menu-proposta', function(){
-          if($('.painel-lista-propostas').hasClass('esconde-proposta')){
-                $('.painel-lista-propostas').removeClass('esconde-proposta');
-                $('.painel-lista-clientes').addClass('esconde-elemento');                
-             }
+
+    $(document).on('click','#item-menu-proposta', function(){
+            $('.x_panel').each (function(){
+              var self = $(this);
+              $(self).addClass('esconde-elemento').removeClass('mostra');
+              $(self).hide();
+            });
+                $('.painel-lista-propostas').show();
+            $('.painel-lista-propostas').removeClass('esconde-elemento');
+            $('.painel-lista-propostas').addClass('mostra');
+            setTimeout(function(){
+            },500);
+            //$('.painel-lista-beneficio').show();
+      });
+    
+
+    $(document).on('click','#item-menu-cliente', function(){
+            $('.x_panel').each (function(){
+              var self = $(this);
+              $(self).addClass('esconde-elemento').removeClass('mostra');
+              $(self).hide();
+            });
+                $('.painel-lista-clientes').show();
+            $('.painel-lista-clientes').removeClass('esconde-elemento');
+            $('.painel-lista-clientes').addClass('mostra');
+            setTimeout(function(){
+            },500);
+            //$('.painel-lista-beneficio').show();
       });    
     
-      $(document).on('click','#item-menu-cliente', function(){
-          $('.painel-lista-propostas').toggleClass('esconde-elemento');
-          $('.painel-lista-clientes').toggleClass('esconde-elemento');
-      });
+    
+    
+    
+    
+    
   
     $(document).on('click','#item-menu-operacao', function(){
           $('.painel-lista-propostas').toggleClass('esconde-elemento');
@@ -150,13 +175,25 @@ function toBRL(n){
     
    
     $(document).on('click','#item-menu-bccomprador', function(){
-          $('.painel-lista-propostas').toggleClass('esconde-elemento');
-          $('.painel-lista-bccomprador').toggleClass('esconde-elemento');
+            $('.x_panel').each (function(){
+              $(this).addClass('esconde-elemento').removeClass('mostra');            
+            }); 
+            $('.painel-lista-bccomprador').removeClass('esconde-elemento');
+            $('.painel-lista-bccomprador').addClass('mostra');
       });  
   
     $(document).on('click','#item-menu-beneficio', function(){
-          $('.painel-lista-propostas').toggleClass('esconde-elemento');
-          $('.painel-lista-beneficio').toggleClass('esconde-elemento');
+            $('.x_panel').each (function(){
+              var self = $(this);
+              $(self).addClass('esconde-elemento').removeClass('mostra');
+              $(self).hide();
+            });
+                $('.painel-lista-beneficio').show();
+            $('.painel-lista-beneficio').removeClass('esconde-elemento');
+            $('.painel-lista-beneficio').addClass('mostra');
+            setTimeout(function(){
+            },500);
+            //$('.painel-lista-beneficio').show();
       });      
     
      
@@ -165,13 +202,15 @@ function toBRL(n){
     
       $(document).on('click','.btn-editar-proposta', function(){
           setTimeout(function(){
-            $('.painel-cadastro-proposta').addClass('mostra');              
+            //$('.painel-cadastro-proposta').addClass('mostra');              
           },1000);
           var id_proposta = $(this).attr('data-id_proposta');
           var nome_cli = $(this).attr('data-nome_cli');
           var cpf_cli = $(this).attr('data-cpf_cli');
+          $('.modal-title').append('<span style="font-weight: bold;"> |: '+id_proposta+'</span>' );
+          $('.modal-title').append('<div class="info-cliente-proposta"><h5>Cliente : '+nome_cli+' </h5><h5> - Cpf : '+cpf_cli+'</h5>');
           setTimeout(function(){
-            $('.painel-lista-propostas').addClass('esconde-elemento');              
+            //$('.painel-lista-propostas').addClass('esconde-elemento');              
           },1000);
           //$('.painel-lista-propostas .collapse-link').click();
           //$('.lista-propostas thead').css('opacity', 0);
@@ -189,7 +228,7 @@ function toBRL(n){
           /*var tr_selected = $(this).closest('tr');
           tr_selected.addClass('selected');*/  
           
-          $('.painel-cadastro-proposta').find('#btn-update-proposta').attr('data-id_proposta', id_proposta);
+          $('#editProposta').find('#btn-update-proposta').attr('data-id_proposta', id_proposta);
           
           
           setTimeout(function(){
@@ -243,6 +282,89 @@ function toBRL(n){
                 })           
       })
     
+    
+    
+    
+    
+    
+    
+      $(document).on('click','.btn-editar-cliente', function(){
+          setTimeout(function(){
+            //$('.painel-cadastro-proposta').addClass('mostra');              
+          },1000);
+          console.log('entrou na edição do cliente');
+          var id_cli = $(this).attr('data-id_cli');
+          var nome_cli = $(this).attr('data-nome_cli');
+          var cpf_cli = $(this).attr('data-cpf_cli');
+          $('.modal-title').html('<span style="font-weight: bold;">Cód. | : '+id_cli+'</span>' );
+          //$('.modal-title').append(');
+          setTimeout(function(){
+            //$('.painel-lista-propostas').addClass('esconde-elemento');              
+          },1000);
+          //$('.painel-lista-propostas .collapse-link').click();
+          //$('.lista-propostas thead').css('opacity', 0);
+          var tr_selected = $(this).closest('tr');
+          tr_selected.css('transition','all .8s');
+          //tr_selected.addClass('selected');
+          var id = tr_selected.attr('id');
+          //var todas_as_linhas_do_tbody = $('.lista-propostas tbody');
+          /*$('.lista-propostas tbody tr').each(function(index){
+              if($(this).attr('id') != id){
+                $(this).removeClass('selected').css('opacity', .4);  
+                $(this).css('color', '#ccc');  
+              }            
+          });*/
+          /*var tr_selected = $(this).closest('tr');
+          tr_selected.addClass('selected');*/  
+          
+          $('#editCliente').find('#btn-submit-edit-cliente').attr('data-id_cli', id_cli);
+          
+          
+          setTimeout(function(){
+            //$('.painel-cadastro-proposta').removeClass('esconde-elemento');              
+          },1000);
+                         console.log('xxxx: '+id_cli);
+                $.ajax({  
+                     url:"captura_dados_cliente.php",
+                     dataType : "json",
+                     type:"POST",  
+                     cache:false,  
+                     data:{id_edit_cli: id_cli},  
+                     success:function(data){
+                         console.log('xxxx: '+data.id_edit_cli);
+                         
+                         
+                         //$('#fullname').closest('#demo-form').find('label').css('opacity', 0);
+                         //$('#nome_edit_cli').css('opacity', 0);
+                         //$('#nome_edit_cli').closest('div').find('label').css('opacity', 0);
+                         
+                         $('.painel-lista-clientes .x_title .title-proposta').text(id_cli);
+                         $('.painel-lista-clientes .x_title .title-cpf').text(cpf_cli+' | ');
+                         $('.painel-lista-clientes .x_title .title-cli').text(nome_cli.toUpperCase());
+                         console.log('json dados cliente a editar ', data);
+                         //$('#id_edit_cli').val(data.id_edit_cli);
+                         $('#nome_edit_cli').val(data.nome_edit_cli);
+                         $('#cpf_edit_cli').val(data.cpf_edit_cli);
+                         $('#identidade_edit_cli').val(data.identidade_edit_cli);
+                         $('#cep_edit_cli').val(data.cep_edit_cli);
+                         $('#endereco_edit_cli').val(data.endereco_edit_cli);  
+                         $('#numero_edit_cli').val(data.numero_edit_cli);  
+                         $('#comple_edit_cli').val(data.comple_edit_cli);  
+                         $('#bairro_edit_cli').val(data.bairro_edit_cli); 
+                         $('#cidade_edit_cli').val(data.cidade_edit_cli); 
+                         $('#uf_edit_cli').val(data.uf_edit_cli); 
+                         $('#datanasc_edit_cli').val(data.datanasc_edit_cli);
+                         
+                     }  
+                }) 
+                console.log('passou do json sem resultado');
+      })    
+    
+    
+    
+    
+    
+    
       $(document).ready(function(){ 
               console.log('teste');
               $('#cpf').mask('000.000.000-00', {reverse: true});
@@ -255,13 +377,12 @@ function toBRL(n){
               $('#ml').mask('#.##0,00', {reverse: true});
 
           
-          $('.item-menu-proposta-cadastro').on('click', function(){
+          /*$('.item-menu-proposta-cadastro').on('click', function(){
               $('.painel-lista-propostas .collapse-link').click();
-              //$('.painel-cadastro-proposta').show();
               $('.painel-cadastro-proposta').removeClass('esconde-elemento');
               $('.painel-cadastro-proposta').addClass('mostra');
               console.log('clicou no cadastro de proposta do menu lateral');
-          });
+          });*/
 
             //console.log('entrou na function javascript');
             //var id = $('input[name=orgao]').val();

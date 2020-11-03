@@ -195,7 +195,7 @@
 
 
 
-                                            <?php echo '<td class="a-right a-right btn-editar-proposta" data-id_proposta="'.$dados['id_contrato'].'" data-nome_cli="'.$dados['nome_cli'].'" data-cpf_cli="'.$dados['cpf_cli'].'" ><i class="fa fa-edit"></i></td>'; ?>
+                                            <?php echo '<td class="a-right a-right btn-editar-proposta"  data-toggle="modal" data-target="#editProposta" data-id_proposta="'.$dados['id_contrato'].'" data-nome_cli="'.$dados['nome_cli'].'" data-cpf_cli="'.$dados['cpf_cli'].'" ><i class="fa fa-edit"></i></td>'; ?>
                                             <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
                                             <!--<td class=" last"><a href="#">View</a>-->
                                             <td class=" last"><a href="#"><i class="fa fa-eye"></i></a>
@@ -226,7 +226,7 @@
 <!-- fim Painel propostas -->
 
 
-<div class="x_panel painel-cadastro-proposta">
+<!--<div class="x_panel painel-cadastro-proposta">
 								<div class="x_title">
 									<h2>Proposta <small>Cadastro</small></h2>
                                     <h2 class="title-proposta"></h2>
@@ -249,151 +249,10 @@
 								</div>
 								<div class="x_content">
 
-									<!-- start form for validation -->
-									<form id="form_update_proposta" method="POST">
-                                        <div class="row">
-                                            <input type="hidden" name="id_proposta_update" id="id_proposta_update" value="">
-                                            <input type="hidden" name="matribn" id="matribn" value="">
-                                            <input type="hidden" name="observa_tab_contrato" id="observa_tab_contrato" value="">
-                                            <div class="col-md-4 col-sm-4">
-                                                <label for="nome_cli">Cliente * :</label>
-                                                <input type="text" id="nome_cli" class="form-control" name="nome_cli">
-                                            </div>
-                                            <div class="col-md-4 col-sm-4">
-                                                <label for="email">Órgão * :</label>
-                                                  <select class="form-control" name="orgao" id="orgao">
-                                                      <option value="">...</option>
-                                                      <option value="1">INSS</option>
-                                                      <option value="2">SIAPE</option>
-                                                      <option value="3">GOV SC</option>
-                                                  </select>
-                                            </div>
-                                            <div class="col-md-2 col-sm-2">
-                                                <label for="fullname">No. Benefício (bn) * :</label>
-                                                  <select class="form-control" name="bn" id="bn">
-                                                      <option value="">...</option>
-                                                      <option value="1">21</option>
-                                                      <option value="2">32</option>
-                                                      <option value="3">41</option>
-                                                      <option value="4">42</option>
-                                                      <option value="5">46</option>
-                                                      <option value="6">92</option>
-                                                      <option value="7">93</option>
-                                                  </select>
-                                            </div>
-                                            <div class="col-md-2 col-sm-2">
-                                                <label for="email">Parcela * :</label>
-                                                <input type="text" id="parce" class="form-control" name="parce" data-parsley-trigger="change" required="">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="fullname">Operação * :</label>
-                                                  <select class="form-control" name="opera" id="opera">
-                                                      <option value="">...</option>
-                                                      <option value="1">Portabilidade</option>
-                                                      <option value="2">Porta + Refi</option>
-                                                      <option value="3">Contrato novo</option>
-                                                      <option value="4">Refinanciamento</option>
-                                                  </select>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="email">promotora * :</label>
-                                                  <select class="form-control" name="promo" id="promo">
-                                                      <option value="">...</option>
-                                                      <option value="1">LEWE</option>
-                                                      <option value="2">FONTES</option>
-                                                      <option value="3">GFT</option>
-                                                  </select>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6">
-                                                <label for="fullname">Vendedor * :</label>
-                                                  <select class="form-control" name="vend" id="vend">
-                                                      <option value="">...</option>
-                                                      <option value="1">Manoel</option>
-                                                      <option value="2">Thauan</option>
-                                                  </select>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-6 col-sm-6">
-                                                <label for="situa">Situação * :</label>
-                                                  <select class="form-control" name="situa" id="situa">
-                                                      <option value="">...</option>
-                                                      <option value="1">AGUARDANDO - digitação</option>
-                                                      <option value="2">AGUARDANDO - sldo devedor</option>
-                                                      <option value="3">AGUARDANDO - averbação</option>
-                                                      <option value="4">AVERBADO</option>
-                                                      <option value="5">AGUARDANDO - refinanciamento de portabilidade</option>
-                                                      <option value="6">PAGO</option>
-                                                      <option value="7">PENDENTE - anexar contrato</option>
-                                                      <option value="8">PENDENTE - documento pendente</option>
-                                                      <option value="9">CANCELADO - cliente retido</option>
-                                                      <option value="10">CANCELADO - no. do contrato não cancelado</option>
-                                                      <option value="11">CANCELADO - contrato com portabilidade</option>
-                                                      <option value="12">CANCELADO - cliente solicitou o cancelamento</option>
-                                                      <option value="13">CANCELADO - margem consignada excedida</option>
-                                                      <option value="14">CANCELADO - cliente com restrição interna</option>
-                                                      <option value="15">CANCELADO - cliente com margem negativa interna</option>
-                                                      <option value="16">CANCELADO - CPF irregular na Receita Federal</option>
-                                                  </select>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="email">ade * :</label>
-                                                <input type="text" id="ade" class="form-control" name="ade" data-parsley-trigger="change">
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="bccompra">Banco Comprador * :</label>
-                                                  <select class="form-control" name="bccompra" id="bccompra">
-                                                      <option value="">...</option>
-                                                      <option value="1">BANRISUL</option>
-                                                      <option value="2">BRADESCO</option>
-                                                  </select>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-6 col-sm-6">
-                                                <label for="fullname">Parcela Inicial * :</label>
-                                                <input type="text" id="parceini" class="form-control" name="parceini" required="">
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="email">Parcela Final * :</label>
-                                                <input type="text" id="parcefinal" class="form-control" name="parcefinal" data-parsley-trigger="change" required="">
-                                            </div>
-                                            <div class="col-md-3 col-sm-3">
-                                                <label for="fullname">ML * :</label>
-                                                <input type="text" id="ml" class="form-control" name="ml" required="">
-                                            </div>
-                                        </div>
-                                        
-                                       <div class="row mb-3">                                            
-                                                <div class="col-md-12 col-sm-12 offset-md-0">
-                                                      <label for="comment">Histórico:</label>
-                                                      <textarea class="form-control" name="historico" rows="2" id="historico"></textarea>
-                                                </div>                                           
-                                        </div>
-                                        
-                                        <div class="row mb-3">
-                                            <div class="item form-group">
-                                                <div class="col-md-12 col-sm-12 offset-md-0">
-                                                    <a href="main.php" class="btn btn-success" type="button">Cancel</a>
-                                                    <!--<button class="btn btn-primary" type="button">Cancel</button>-->
-                                                    <!--<button class="btn btn-primary" type="reset">Reset</button>-->
-                                                    <!--<button type="submit" class="btn btn-secondary">Submit</button>-->
-                                                    <button type="button" name="btn-submit-update-proposta" id="btn-update-proposta" class="btn btn-secondary" data-id_contrato="">Salvar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                         
-                                        
 
-
-									</p>
-                                        </form>
-									<!-- end form for validations -->
 
 								</div>
-							</div>
+							</div>-->
 
 
 
@@ -476,7 +335,7 @@
                                                     while($dados_cliente = mysqli_fetch_array($resultado_clientes)):
                                                     ?>
 
-                                                        <?php echo '<tr class="even pointer" id="td_cli_'. $dados_cliente['id_cli'] . '">'; ?>
+                                                        <?php echo '<tr class="even pointer" id="tr-cli_'. $dados_cliente['id_cli'] . '">'; ?>
                                                                     <td class="a-center cheque ">
                                                                       <input type="checkbox" class="flat" name="ativar_linha">
                                                                     </td>
@@ -493,7 +352,7 @@
                                                         <td class="td-cidade_cli"><?php echo $dados_cliente['cidade_cli']; ?></td>
                                                         <td class="td-uf_cli"><?php echo $dados_cliente['uf_cli']; ?></td>
                                                         <td class="td-datanasc_cli"><?php echo $dados_cliente['datanasc_cli']; ?></td>
-                                                        <?php echo '<td class="a-right a-right btn-editar-cliente" data-id_cliente="'.$dados_cliente['id_cli'].'" data-nome_cli="'.$dados_cliente['nome_cli'].'" ><i class="fa fa-edit"></i></td>'; ?>
+                                                        <?php echo '<td class="a-right a-right btn-editar-cliente" data-toggle="modal" data-target="#editCliente" data-id_cli="'.$dados_cliente['id_cli'].'" data-nome_cli="'.$dados_cliente['nome_cli'].'" data-cpf_cli="'.$dados_cliente['cpf_cli'].'" ><i class="fa fa-edit"></i></td>'; ?>
                                                 <td class="a-right a-right "><i class="fa fa-trash-o"></i></td>
                                                 <!--<td class=" last"><a href="#">View</a>-->
                                                 <td class=" last"><a href="#"><i class="fa fa-eye"></i></a></td>        
@@ -2092,6 +1951,169 @@
 
 
 
+        <div class="modal fade" id="editProposta" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Edita Proposta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <div class="form-nova-proposta">									
+                      <!-- start form for validation -->
+									<form id="form_update_proposta" method="POST">
+                                        <div class="row">
+                                            <input type="hidden" name="id_proposta_update" id="id_proposta_update" value="">
+                                            <input type="hidden" name="matribn" id="matribn" value="">
+                                            <input type="hidden" name="observa_tab_contrato" id="observa_tab_contrato" value="">
+                                            <div class="col-md-4 col-sm-4">
+                                                <label for="nome_cli">Cliente * :</label>
+                                                <input type="text" id="nome_cli" class="form-control" name="nome_cli">
+                                            </div>
+                                            <div class="col-md-4 col-sm-4">
+                                                <label for="email">Órgão * :</label>
+                                                  <select class="form-control" name="orgao" id="orgao">
+                                                      <option value="">...</option>
+                                                      <option value="1">INSS</option>
+                                                      <option value="2">SIAPE</option>
+                                                      <option value="3">GOV SC</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <label for="fullname">No. Benefício (bn) * :</label>
+                                                  <select class="form-control" name="bn" id="bn">
+                                                      <option value="">...</option>
+                                                      <option value="1">21</option>
+                                                      <option value="2">32</option>
+                                                      <option value="3">41</option>
+                                                      <option value="4">42</option>
+                                                      <option value="5">46</option>
+                                                      <option value="6">92</option>
+                                                      <option value="7">93</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <label for="email">Parcela * :</label>
+                                                <input type="text" id="parce" class="form-control" name="parce" data-parsley-trigger="change" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="fullname">Operação * :</label>
+                                                  <select class="form-control" name="opera" id="opera">
+                                                      <option value="">...</option>
+                                                      <option value="1">Portabilidade</option>
+                                                      <option value="2">Porta + Refi</option>
+                                                      <option value="3">Contrato novo</option>
+                                                      <option value="4">Refinanciamento</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="email">promotora * :</label>
+                                                  <select class="form-control" name="promo" id="promo">
+                                                      <option value="">...</option>
+                                                      <option value="1">LEWE</option>
+                                                      <option value="2">FONTES</option>
+                                                      <option value="3">GFT</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <label for="fullname">Vendedor * :</label>
+                                                  <select class="form-control" name="vend" id="vend">
+                                                      <option value="">...</option>
+                                                      <option value="1">Manoel</option>
+                                                      <option value="2">Thauan</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6 col-sm-6">
+                                                <label for="situa">Situação * :</label>
+                                                  <select class="form-control" name="situa" id="situa">
+                                                      <option value="">...</option>
+                                                      <option value="1">AGUARDANDO - digitação</option>
+                                                      <option value="2">AGUARDANDO - sldo devedor</option>
+                                                      <option value="3">AGUARDANDO - averbação</option>
+                                                      <option value="4">AVERBADO</option>
+                                                      <option value="5">AGUARDANDO - refinanciamento de portabilidade</option>
+                                                      <option value="6">PAGO</option>
+                                                      <option value="7">PENDENTE - anexar contrato</option>
+                                                      <option value="8">PENDENTE - documento pendente</option>
+                                                      <option value="9">CANCELADO - cliente retido</option>
+                                                      <option value="10">CANCELADO - no. do contrato não cancelado</option>
+                                                      <option value="11">CANCELADO - contrato com portabilidade</option>
+                                                      <option value="12">CANCELADO - cliente solicitou o cancelamento</option>
+                                                      <option value="13">CANCELADO - margem consignada excedida</option>
+                                                      <option value="14">CANCELADO - cliente com restrição interna</option>
+                                                      <option value="15">CANCELADO - cliente com margem negativa interna</option>
+                                                      <option value="16">CANCELADO - CPF irregular na Receita Federal</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="email">ade * :</label>
+                                                <input type="text" id="ade" class="form-control" name="ade" data-parsley-trigger="change">
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="bccompra">Banco Comprador * :</label>
+                                                  <select class="form-control" name="bccompra" id="bccompra">
+                                                      <option value="">...</option>
+                                                      <option value="1">BANRISUL</option>
+                                                      <option value="2">BRADESCO</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6 col-sm-6">
+                                                <label for="fullname">Parcela Inicial * :</label>
+                                                <input type="text" id="parceini" class="form-control" name="parceini" required="">
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="email">Parcela Final * :</label>
+                                                <input type="text" id="parcefinal" class="form-control" name="parcefinal" data-parsley-trigger="change" required="">
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="fullname">ML * :</label>
+                                                <input type="text" id="ml" class="form-control" name="ml" required="">
+                                            </div>
+                                        </div>
+                                        
+                                       <div class="row mb-3">                                            
+                                                <div class="col-md-12 col-sm-12 offset-md-0">
+                                                      <label for="comment">Histórico:</label>
+                                                      <textarea class="form-control" name="historico" rows="2" id="historico"></textarea>
+                                                </div>                                           
+                                        </div>
+                                        
+                                        <div class="row mb-3">
+                                            <div class="item form-group">
+                                                <div class="col-md-12 col-sm-12 offset-md-0">
+                                                    <a href="main.php" class="btn btn-success" type="button">Cancel</a>
+                                                    <!--<button class="btn btn-primary" type="button">Cancel</button>-->
+                                                    <!--<button class="btn btn-primary" type="reset">Reset</button>-->
+                                                    <!--<button type="submit" class="btn btn-secondary">Submit</button>-->
+                                                    <button type="button" name="btn-submit-update-proposta" id="btn-update-proposta" data-dismiss='modal' class="btn btn-secondary" >Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         
+                                        
+
+
+									</p>
+                                        </form>
+									<!-- end form for validations -->
+				  </div>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
         <div class="modal fade" id="addCliente" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -2170,6 +2192,107 @@
                                             </div>
                                         </div>										
                                 </form>
+				  </div>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="modal fade" id="editCliente" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Edita Proposta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <div class="form-nova-proposta">									
+                      <!-- start form for validation -->
+									<form id="form_edit_cliente" method="POST">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4">
+                                                <label for="nome_edit_cli">Nome * :</label>
+                                                <input type="text" id="nome_edit_cli" class="form-control" name="nome_edit_cli">
+                                            </div>
+                                            <div class="col-md-4 col-sm-4">
+                                                <label for="cpf_edit_cli">Cpf * :</label>
+                                                <input type="text" id="cpf_edit_cli" class="form-control" name="cpf_edit_cli">
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <label for="identidade_edit_cli">Identidade * :</label>
+                                                <input type="text" id="identidade_edit_cli" class="form-control" name="identidade_edit_cli">
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <label for="cep_edit_cli">Cep * :</label>
+                                                <input type="text" id="cep_edit_cli" class="form-control" name="cep_edit_cli" data-parsley-trigger="change" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="endereco">Endereço * :</label>
+                                                <input type="text" id="endereco_edit_cli" class="form-control" name="endereco_edit_cli" data-parsley-trigger="change" required="">
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="numero_edit_cli">Numero * :</label>
+                                                <input type="text" id="numero_edit_cli" class="form-control" name="numero_edit_cli" data-parsley-trigger="change" required="">
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <label for="comple_edit_cli">Complemento * :</label>
+                                                <input type="text" id="comple_edit_cli" class="form-control" name="comple_edit_cli" data-parsley-trigger="change" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6 col-sm-6">
+                                                <label for="bairro_edit_cli">Bairro * :</label>
+                                                <input type="text" id="bairro_edit_cli" class="form-control" name="bairro_edit_cli" data-parsley-trigger="change" required="">
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="cidade_edit_cli">Cidade * :</label>
+                                                <input type="text" id="cidade_edit_cli" class="form-control" name="cidade_edit_cli" data-parsley-trigger="change">
+                                            </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <label for="uf_edit_cli">Uf * :</label>
+                                                <input type="text" id="uf_edit_cli" class="form-control" name="uf_edit_cli" data-parsley-trigger="change">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6 col-sm-6">
+                                                <label for="datanasc_edit_cli">data Nasc. * :</label>
+                                                <input type="text" id="datanasc_edit_cli" class="form-control" name="datanasc_edit_cli" required="">
+                                            </div>
+                                        </div>
+                                        
+                                       <!--<div class="row mb-3">                                            
+                                                <div class="col-md-12 col-sm-12 offset-md-0">
+                                                      <label for="comment">Histórico:</label>
+                                                      <textarea class="form-control" name="historico" rows="2" id="historico"></textarea>
+                                                </div>                                           
+                                        </div>-->
+                                        
+                                        <div class="row mb-3">
+                                            <div class="item form-group">
+                                                <div class="col-md-12 col-sm-12 offset-md-0">
+                                                    <a href="main.php" class="btn btn-success" type="button">Cancel</a>
+                                                    <!--<button class="btn btn-primary" type="button">Cancel</button>-->
+                                                    <!--<button class="btn btn-primary" type="reset">Reset</button>-->
+                                                    <!--<button type="submit" class="btn btn-secondary">Submit</button>-->
+                                                    <button type="button" name="btn-submit-edit-cliente" id="btn-submit-edit-cliente" class="btn btn-secondary" data-dismiss='modal' >Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         
+                                        
+
+
+									</p>
+                                        </form>
+									<!-- end form for validations -->
 				  </div>
               </div>
               <div class="modal-footer">
