@@ -141,7 +141,7 @@
                                                             <?php //echo '<i class="fa fa-grip-horizontal"></i><span class="span-situa-1">&nbsp;</span>';?>
                                                             <?php echo '<i class="fa fa-certificate" style="background: '.$cor_situacao .'; color: '.$cor_situacao .'"></i> ' . strtolower($texto_id_situa); ?></td>
                                                         <td class="td-motivo-situa"><?php echo $texto_motivo_situa; ?></td>
-                                                        <td class="icone-textarea-obs"><?php echo '<i class="fa fa-keyboard-o"></i>'; ?></td>
+                                                        <td class="icone-textarea-obs btn-historico" data-toggle="modal" data-target="#crudHistorico" data-id_proposta="<?php echo $dados['id_contrato']; ?>"><?php echo '<i class="fa fa-keyboard-o"></i>'; ?></td>
                                                         <td class="td-orgao">
                                                             <?php                                
                                                                // busca nome do orgao
@@ -2465,6 +2465,40 @@
 
 
 
+        <div class="modal fade" id="crudHistorico" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Histórico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  
+                  
+                <table class="table table-historico table-striped jambo_table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Data</th>
+                                <th>Histórico</th>
+                                <th>Usuário</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--<tr><th scope="row">1</th><td></td><td></td><td></td></tr>-->
+                        </tbody>
+                  </table>                  
+                  
+                  
+                  
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
 
 
 

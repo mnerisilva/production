@@ -12,7 +12,7 @@
     color: darkorange;
     cursor: pointer;
 } 
-.btn-editar-cliente:hover {
+.btn-editar-cliente:hover, .btn-historico:hover {
     color: darkorange;
     cursor: pointer;
 }
