@@ -2216,6 +2216,7 @@
                       <!-- start form for validation -->
 									<form id="form_edit_cliente" method="POST">
                                         <div class="row">
+                                        <input type="hidden" name="id_edit_cli" id="id_edit_cli" value="">
                                             <div class="col-md-4 col-sm-4">
                                                 <label for="nome_edit_cli">Nome * :</label>
                                                 <input type="text" id="nome_edit_cli" class="form-control" name="nome_edit_cli">

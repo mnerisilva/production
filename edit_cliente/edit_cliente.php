@@ -2,8 +2,8 @@
       // create database connectivity  
       require_once('../php_action/db_connect.php'); 
 
-      var_dump($_POST);
-      die();
+      //var_dump($_POST);
+      //die();
 
       // atualiza proposta  
       $id_cli = $_POST['id_edit_cli'];
@@ -20,7 +20,7 @@
       $datanasc_cli = $_POST['datanasc_edit_cli'];
 
 
-      $query = "UPDATE tab_clientes SET nome_cli='{$nome_cli}', cpf_cli='{$cpf_cli}', identidade_cli='{$identidade_cli}',cep_cli='{$cep_cli}', endereco_cli='{$endereco_cli}',numero_cli='{$numero_cli}',comple_cli='{$comple_cli}',bairro_cli='{$bairro_cli}', cidade_cli='{$cidade_cli}',uf_cli='{$uf_cli}',datanasc_cli='{$datanasc_cli}'"; 
+      $query = "UPDATE tab_clientes SET nome_cli='{$nome_cli}', cpf_cli='{$cpf_cli}', identidade_cli='{$identidade_cli}',cep_cli='{$cep_cli}', endereco_cli='{$endereco_cli}',numero_cli='{$numero_cli}',comple_cli='{$comple_cli}',bairro_cli='{$bairro_cli}', cidade_cli='{$cidade_cli}',uf_cli='{$uf_cli}',datanasc_cli='{$datanasc_cli}' WHERE id_cli='{$id_cli}'"; 
 
         if (mysqli_query($connect, $query)) {
           echo "Record updated successfully";

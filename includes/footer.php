@@ -318,6 +318,7 @@ function toBRL(n){
           tr_selected.addClass('selected');*/  
           
           $('#editCliente').find('#btn-submit-edit-cliente').attr('data-id_cli', id_cli);
+          //$('#editCliente').find('#form_edit_cliente').find('#btn-submit-edit-cliente').val(id_cli).trigger('change');
           
           
           setTimeout(function(){
@@ -343,6 +344,7 @@ function toBRL(n){
                          $('.painel-lista-clientes .x_title .title-cli').text(nome_cli.toUpperCase());
                          console.log('json dados cliente a editar ', data);
                          //$('#id_edit_cli').val(data.id_edit_cli);
+                         $('#id_edit_cli').val(id_cli);
                          $('#nome_edit_cli').val(data.nome_edit_cli);
                          $('#cpf_edit_cli').val(data.cpf_edit_cli);
                          $('#identidade_edit_cli').val(data.identidade_edit_cli);
