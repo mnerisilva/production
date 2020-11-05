@@ -208,3 +208,43 @@
 #modalAnexos .modal-footer form {
     width: 100%;
 }
+
+media (min-width: 576px)
+#crudHistorico .modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+    margin: 0 !important;
+}
+
+#crudHistocico .modal-content {
+    width: 100vw !important;
+}
+
+#crudHistorico tbody .post:before {
+        font-family: FontAwesome;
+        content: "\f0e5";
+        /*content: "\f075";*/
+        color: darkorange;
+        padding-right: 10px;
+}
+
+#crudHistorico tbody .img-user img {
+    background: #fff;
+    margin-left: 15%;
+    z-index: 1000;
+    position: inherit;
+    margin-top: 20px;
+    border: 1px solid rgba(52,73,94,0.44);
+    padding: 4px;
+    width: 3em;
+    border-radius: 50%;
+    margin: 0 !important;
+}
+
+#crudHistorico tbody .img-user {
+    text-align: center !important;
+}
+
+#crudHistorico tbody .post {
+    font-size: 1.2em;
+}

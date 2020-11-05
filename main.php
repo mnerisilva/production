@@ -2466,15 +2466,15 @@
 
 
         <div class="modal fade" id="crudHistorico" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog modal-xl">
-            <div class="modal-content">
+          <div class="modal-dialog modal-xl" style="margin: 0 !important; height: 100vh !important;">
+            <div class="modal-content" style="width: 100vw !important; height: 90vh !important; border-radius: 0 !important;">
               <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Histórico</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body" style="background: #fff;">
                   
                   
                 <table class="table table-historico table-striped jambo_table table-condensed">
@@ -2482,7 +2482,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Data</th>
-                                <th>Histórico</th>
+                                <th>Postagem</th>
                                 <th>Usuário</th>
                             </tr>
                         </thead>
