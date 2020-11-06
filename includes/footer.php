@@ -53,6 +53,7 @@
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
 
+    <script src="js/variaveis_globais.js"></script>
     <script src="js/jquery.mask.min.js"></script>
     <script src="js/ajax/monta_lista_anexo_fetch.js"></script>
     <script src="js/ajax/apaga_anexo_da_lista_delete.js"></script>

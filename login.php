@@ -23,7 +23,7 @@
             //$info = $sql->fetch();
             if(password_verify($senha, $resultado['senha'])){
                 $_SESSION['login'] = true;
-                $_SESSION['id'] = $resultado['id'];
+                $_SESSION['id_user'] = $resultado['id_user'];
                 $_SESSION['usuario'] = $resultado['usuario'];
                 $_SESSION['nome_completo_usuario'] = $resultado['nome_completo_usuario'];
                 $_SESSION['primeiro_nome_usuario'] = $resultado['primeiro_nome_usuario'];

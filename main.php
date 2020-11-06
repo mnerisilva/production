@@ -8,6 +8,7 @@
         die();
     }
 
+    
 
 ?>
 
@@ -24,6 +25,10 @@
 // Menu superior
     include_once 'includes/top_menu.php';
 ?>
+
+<script>
+        window.usuario_logado = "<?php echo $_SESSION['id_user']; ?>"
+</script>
 
         <!-- page content -->
         <div class="right_col" role="main">

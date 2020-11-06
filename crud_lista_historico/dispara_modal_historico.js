@@ -1,5 +1,6 @@
 (function(){
     
+    console.log('usuario logado: '+window.usuario_logado);
     $(document).on('click', '.btn-historico', function(e){
         e.preventDefault();
         $('#crudHistorico .table-historico tbody').html('');

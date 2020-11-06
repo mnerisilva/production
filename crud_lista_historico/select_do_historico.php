@@ -1,12 +1,13 @@
  <?php
-
+        session_start();
         // create database connectivity  
         require_once('../php_action/db_connect.php');
 
 
 
 
-
+        
+        
 
       if (isset($_POST['id_proposta']) && $_POST['id_proposta'] != '') { 
            $id_proposta = $_POST['id_proposta'];
