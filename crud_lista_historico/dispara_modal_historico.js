@@ -24,7 +24,7 @@
                 var linha = '';
                 for (let key in objeto_data_hist) {
                     linha = objeto_data_hist[key];
-                    $('#crudHistorico .table-historico tbody').append('<tr><th scope="row">'+linha.id_hist+'</th><td>'+linha.data_ult_modi+'</td><td class="post">'+linha.postagem_hist+'</td><td class="img-user"><img class="img-responsive" src="'+linha.foto_usuario_link+'" title="'+linha.primeiro_nome_usuario+'"/></td></tr>')
+                    $('#crudHistorico .table-historico tbody').append('<tr><th scope="row">'+linha.id_hist+'</th><td>'+linha.data_ult_modi+'</td><td class="post">'+linha.postagem_hist+'</td><td><a href=""><i class="fa fa-edit"></i></a> <a href=""><i class="fa fa-trash"></i></a></td><td class="img-user"><img class="img-responsive" src="'+linha.foto_usuario_link+'" title="'+linha.primeiro_nome_usuario+'"/></td></tr>')
                   console.log(key, objeto_data_hist[key]);
                 }                
             }

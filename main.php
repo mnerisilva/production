@@ -2475,19 +2475,32 @@
             <div class="modal-content" style="width: 100vw !important; height: 90vh !important; border-radius: 0 !important;">
               <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Histórico</h5>
+                <h5><a href="" id="btn-addHistorico"><i class="fa fa-plus-circle fa-2x"></i></a></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body" style="background: #fff;">
-                  
-                  
+                                <div class="form-group add-post">
+                                    <div class="row">
+									   <label class="control-label col-md-3 col-sm-3 ">Postagem:</label>
+                                    </div>
+                                    <div class="row">>
+                                            <div class="col-lg-10 col-md-10 col-sm-10 ">
+                                                <textarea class="resizable_textarea form-control" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." style="margin-top: 0px; margin-bottom: 0px; height: 85px; width: 100%;"></textarea>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 ">
+                                                <button class="btn btn-success" id="btn-salvar-post-historico" data-id_proposta="">Salvar</button>
+                                            </div>
+                                    </div>
+								</div>
                 <table class="table table-historico table-striped jambo_table table-condensed">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Data</th>
                                 <th>Postagem</th>
+                                <th>Ação</th>
                                 <th>Usuário</th>
                             </tr>
                         </thead>

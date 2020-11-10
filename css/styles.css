@@ -248,3 +248,14 @@ media (min-width: 576px)
 #crudHistorico tbody .post {
     font-size: 1.2em;
 }
+
+#crudHistorico .add-post {
+    overflow: hidden;
+    height: 0;
+    transition: all .3s linear;
+}
+
+.exibe-form-addPost {
+    height: auto !important;
+    transition: heigth .3s linear;
+}

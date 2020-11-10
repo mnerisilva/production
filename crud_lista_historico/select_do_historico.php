@@ -18,7 +18,7 @@
           
 
                                                     //$sql = "SELECT * FROM tab_clientes";
-                                                    $sql_hist = "SELECT * FROM tab_proposta_historico WHERE id_contrato = {$id_proposta}";
+                                                    $sql_hist = "SELECT * FROM tab_proposta_historico WHERE id_contrato = {$id_proposta} ORDER BY data_inclusao DESC";
                                                     /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
 
                                                     $resultado_hist = mysqli_query($connect, $sql_hist);
