@@ -2481,7 +2481,29 @@
                 </button>
               </div>
               <div class="modal-body" style="background: #fff;">
-                                <div class="form-group add-post">
+                              <div class="row add-post">
+                                    <form id="form_add_crud_hist" method="POST" class="col-lg-12">
+
+                                               <div class="row mb-3">                                            
+                                                        <div class="col-md-12 col-sm-12 offset-md-0">                                                            
+                                                        <input type="hidden" name="hidden_id_proposta_hist" id="hidden_id_proposta_hist" value="" />
+                                                        <input type="hidden" name="hidden_id_usuario_logado" id="hidden_id_usuario_logado" value="" />
+                                                              <label for="add_post_hist"><h4>Postagem:</h4></label>
+                                                              <textarea class="form-control" name="add_post_hist" rows="2" id="add_post_hist" required></textarea>
+                                                        </div>                                           
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <div class="item form-group">
+                                                        <div class="col-md-12 col-sm-12 offset-md-0">
+                                                            <a href="" class="btn btn-success" type="button" data-dismiss="modal">Cancel</a>
+                                                            <button type="button" name="btn-submit-add-hist" id="btn-add-crud-hist" class="btn btn-secondary" data-id_proposta="" data-id_usuario_logado>Salvar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>											
+                                    </form>                                  
+                              </div>
+                                <!--<div class="form-group add-post">
                                     <div class="row">
 									   <label class="control-label col-md-3 col-sm-3 ">Postagem:</label>
                                     </div>
@@ -2493,8 +2515,10 @@
                                                 <button class="btn btn-success" id="btn-salvar-post-historico" data-id_proposta="">Salvar</button>
                                             </div>
                                     </div>
-								</div>
-                <table class="table table-historico table-striped jambo_table table-condensed">
+								</div>-->
+                
+                  <div class="post-list col-lg-12 col-md-12 col-sx-12"></div>
+                <!--<table class="table table-historico table-striped jambo_table table-condensed">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -2505,9 +2529,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!--<tr><th scope="row">1</th><td></td><td></td><td></td></tr>-->
                         </tbody>
-                  </table>                  
+                  </table>-->                  
                   
                   
                   

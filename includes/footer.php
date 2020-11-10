@@ -63,7 +63,8 @@
     <script src="add_cliente/add_cliente.js"></script>
     <script src="edit_cliente/edit_cliente.js"></script>
     <script src="crud_lista_historico/dispara_modal_historico.js"></script>
-    <script src="crud_lista_historico/add_post_historico.js"></script>
+    <script src="crud_lista_historico/exibe_form_add_post.js"></script>
+    <script src="crud_lista_historico/submit_form_add_post.js"></script>
 	
   </body>
 </html>
